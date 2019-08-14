@@ -1,0 +1,28 @@
+.containerAboutUs {
+    margin-top: 4rem;
+}
+.wrapperAboutUs {
+    position: relative;
+    margin-top: 4rem;
+}
+.wrapperAboutUs_photo {
+    position: absolute !important;
+    width: 190px;
+}
+.wrapperAboutUs_photo:hover {
+    cursor: pointer;
+}
+.photo1 {
+    left: -5%;
+    top: -10%;
+}
+
+.photo2 {
+    right: 0%;
+    top: 20%;
+}
+
+.photo3 {
+    left: -5%;
+    top: 50%;
+}

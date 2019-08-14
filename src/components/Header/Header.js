@@ -1,38 +1,40 @@
 import React from 'react';
-import {Icon, Menu, Image} from 'semantic-ui-react';
+import { Menu, Image, Container, } from 'semantic-ui-react';
 import Logo from '../../Logo.jpg';
 import './Header.css';
 
-const colorsA = ['red', 'orange', 'yellow', 'olive', 'green', 'teal'];
+
+const colorsA = ['yellow', 'green', 'blue', 'grey', 'yellow', 'teal'];
 const headerItems = [ 'About Us', 'What We Do', 'Used Tech', 'Our Projects', 'Jobs', 'Contact Us' ];
 
 
 export class Header extends React.Component {
-    state = { activeA: colorsA[0] }
+    state = { activeA: null}
 
-    handleAClick = (e, { name }) => this.setState({ activeA: name })
+    handleAClick = (e,  {name} ) => this.setState({ activeA: name });
+
 
     render() {
         const { activeA, } = this.state;
-
         return (
             <div >
-                <Menu className='menu'  color="teal" inverted size="massive" fixed='top'>
+                <Menu className='menu' inverted size="massive" fixed='top'>
                     <Image src={Logo} size='small' />
                     <div className='menuItems'>
-                        {headerItems.map(el => (
+                        {headerItems.map((el, idx) => (
                             <Menu.Item
                                 key={el}
                                 name={el}
                                 active={activeA === el}
-                                color='red'
+                                // color={colorsA[idx] || 'blue'}
+                                // style={ activeA === el ? {backgroundColor: colorsA[idx],} : null}
                                 onClick={this.handleAClick}
                                 size='small'
                             />
                         ))}
                     </div>
                 </Menu>
-                <div className='headerMainContent'>
+                <Container fluid className='headerMainContent'>
                     <div className='animationContainer'>
                         <p className='animationPart'>
                             Pre Text
@@ -42,17 +44,12 @@ export class Header extends React.Component {
                             Lorem ipsum dolor sit amet.
                         </p>
                     </div>
-                    <div className='header'>
-                        <span>
+                    <Container text textAlign='left'>
                             Cum deserunt dolorum id illum in magni necessitatibus nisi tenetur. Lorem ipsum dolor sit amet,
                             consectetur adipisicing elit. Adipisci assumenda illum magni, quaerat quas quia quo rerum sapiente
                             tempore voluptatem! Consectetur dolorum id illum in magni necessitatibus nisi tenetur.
-                        </span>
-                    </div>
-                </div>
-
-
-
+                    </Container>
+                </Container>
             </div>
         )
     }
