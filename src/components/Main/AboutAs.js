@@ -1,25 +1,7 @@
 import React, { Component } from 'react';
-import { Header, Icon, Container, Image, TransitionablePortal,Segment } from 'semantic-ui-react';
+import {Header, Icon, Container, Image, TransitionablePortal, Segment, Divider} from 'semantic-ui-react';
 import './Main.css';
-
-const objectInf = {
-    photo1: {
-        src: 'https://seeklogo.com/images/F/flat-man-icon-logo-A0FEC16B6D-seeklogo.com.png',
-        FullName: 'Aleksey Kotvitsky',
-        roll: 'React Developer'
-    },
-
-    photo2: {
-        src: 'https://icon-library.net/images/woman-icon/woman-icon-8.jpg',
-        FullName: 'Oksana Palamarchuk ',
-        roll: 'Business Analytic'
-    },
-    photo3: {
-        src: 'https://seeklogo.com/images/F/flat-man-icon-logo-A0FEC16B6D-seeklogo.com.png',
-        FullName: 'Oleg Werdffelynir',
-        roll: 'Full Stack Developer'
-    }
-};
+import { aboutUsInf } from '../../api/dataForComponents';
 
 
 export class AboutAs extends Component {
@@ -31,59 +13,40 @@ export class AboutAs extends Component {
                     <Icon name='users' circular color='green'/>
                     <Header.Content>About Us</Header.Content>
                 </Header>
+                <Divider style={{width: '80%', margin: '0 auto'}}/>
                 <Container className='wrapperAboutUs'>
                     <Container text>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur assumenda consequatur
-                        corporis cumque distinctio doloremque doloribus esse excepturi fugiat id impedit iusto, magni
-                        quidem sequi similique vel vitae. A adipisci aliquam aspernatur atque cum, dicta dolor dolore
-                        enim excepturi exercitationem facilis ipsa laborum magnam magni molestias nam nesciunt nihil
-                        odit porro provident quae quo repellendus rerum sed ullam voluptatibus, voluptatum. Adipisci
-                        aliquam at dolore, esse maxime mollitia omnis quam repudiandae sed similique soluta unde velit.
-                        Accusamus accusantium adipisci asperiores blanditiis consectetur culpa dolorem doloremque
-                        dolores doloribus excepturi facilis harum hic impedit laboriosam maxime modi nesciunt officia
-                        optio pariatur quibusdam recusandae, repellendus reprehenderit, repudiandae saepe sapiente
-                        soluta suscipit vel vero voluptatibus voluptatum. Doloremque expedita in reiciendis! Alias
-                        assumenda beatae, commodi consequuntur debitis doloribus ducimus error esse eum fuga in iure,
-                        labore magnam nam nemo, nihil nisi nulla odio officia omnis perspiciatis repellat repellendus
-                        reprehenderit suscipit velit. Ad aut deleniti deserunt dicta dolores ea ex harum in inventore,
-                        laborum magni nemo nisi nobis placeat provident quaerat repudiandae! Ab adipisci alias aperiam
-                        aspernatur dicta dolorem doloribus ducimus fugit iure laudantium minus nostrum odit possimus,
-                        praesentium provident quam quod reiciendis saepe suscipit veritatis vitae voluptas voluptatem.
-                        Blanditiis fugit ipsam neque officiis saepe totam.
+                        <p>
+                            { aboutUsInf.content }
+                        </p>
                     </Container>
                     {Array(3).fill(0).map((el, idx) => (
                         <TransitionablePortal
+                            key={idx}
                             closeOnTriggerClick
                             openOnTriggerClick
                             trigger={
                                 <Image
-                                    src={objectInf['photo'+(idx+1)].src}
+                                    src={aboutUsInf['photo'+idx].src}
                                     circular
-                                    className={`wrapperAboutUs_photo photo${[idx+1]}`}
+                                    className={`wrapperAboutUs_photo photo${idx}`}
                                 />
                             }
                         >
 
-                            <Segment style={{ left: '30%', position: 'relative', top: '-50%', zIndex: 1000, width: '30%', textAlign: 'center', backgroundColor: 'rgba(0,0,0,0.7)', color: 'white' }}>
-                                <Header>{objectInf['photo'+(idx+1)].FullName}</Header>
-                                <p>{objectInf['photo'+(idx+1)].roll}</p>
+                            <Segment className='employeeInf' >
+                                <Image
+                                    src={aboutUsInf['photo'+idx].src}
+                                    circular
+                                    size='tiny'
+                                    verticalAlign='top'
+                                />
+                                <Header style={{color: 'white'}}>{aboutUsInf['photo'+idx].fullName}</Header>
+                                <p>{aboutUsInf['photo'+idx].roll}</p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto at beatae blanditiis dignissimos eos error, eveniet incidunt laboriosam minima nam, nihil obcaecati odio odit praesentium quibusdam similique ut vel.</p>
                             </Segment>
                         </TransitionablePortal>
                     ))}
-
-
-                    {/*<Image*/}
-                    {/*    src='https://icon-library.net/images/woman-icon/woman-icon-8.jpg'*/}
-                    {/*    circular*/}
-                    {/*    className='wrapperAboutUs_photo photo2'*/}
-                    {/*/>*/}
-                    {/*<Image*/}
-                    {/*    src='https://seeklogo.com/images/F/flat-man-icon-logo-A0FEC16B6D-seeklogo.com.png'*/}
-                    {/*    circular*/}
-                    {/*    className='wrapperAboutUs_photo photo3'*/}
-                    {/*    // tooltip={imageObj.photo3}*/}
-                    {/*/>*/}
                 </Container>
             </div>
         );

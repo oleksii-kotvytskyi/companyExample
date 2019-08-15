@@ -1,24 +1,21 @@
 import React from 'react';
 import { Menu, Image, Container, } from 'semantic-ui-react';
-import Logo from '../../Logo.jpg';
+import Logo from '../../img/Logo.jpg';
 import './Header.css';
-
+import { headerItems } from '../../api/dataForComponents';
 
 const colorsA = ['yellow', 'green', 'blue', 'grey', 'yellow', 'teal'];
-const headerItems = [ 'About Us', 'What We Do', 'Used Tech', 'Our Projects', 'Jobs', 'Contact Us' ];
 
 
 export class Header extends React.Component {
     state = { activeA: null}
-
     handleAClick = (e,  {name} ) => this.setState({ activeA: name });
-
 
     render() {
         const { activeA, } = this.state;
         return (
             <div >
-                <Menu className='menu' inverted size="massive" fixed='top'>
+                <Menu className='menu' inverted size="massive" fixed='top' >
                     <Image src={Logo} size='small' />
                     <div className='menuItems'>
                         {headerItems.map((el, idx) => (
@@ -39,15 +36,17 @@ export class Header extends React.Component {
                         <p className='animationPart'>
                             Pre Text
                             <span className="animationText">
-                            Some Interesting TEXT
-                        </span>
+                                Some Interesting TEXT
+                            </span>
                             Lorem ipsum dolor sit amet.
                         </p>
                     </div>
                     <Container text textAlign='left'>
+                        <p>
                             Cum deserunt dolorum id illum in magni necessitatibus nisi tenetur. Lorem ipsum dolor sit amet,
                             consectetur adipisicing elit. Adipisci assumenda illum magni, quaerat quas quia quo rerum sapiente
                             tempore voluptatem! Consectetur dolorum id illum in magni necessitatibus nisi tenetur.
+                        </p>
                     </Container>
                 </Container>
             </div>

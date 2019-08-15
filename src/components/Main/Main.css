@@ -12,17 +12,32 @@
 .wrapperAboutUs_photo:hover {
     cursor: pointer;
 }
-.photo1 {
+.photo0 {
     left: -5%;
     top: -10%;
 }
 
-.photo2 {
+.photo1 {
     right: 0%;
     top: 20%;
 }
 
-.photo3 {
+.photo2 {
     left: -5%;
-    top: 50%;
+    top: 60%;
+}
+.employeeInf {
+    position: relative;
+    left: 35%;
+    top: -165%;
+    width: 30%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.98) !important;
+    color: white;
+}
+.containerWhatWeDo {
+    margin-top: 5rem;
+    padding-top: 4rem;
+    background-color: rgba(9,13,0 , 0.15); /*251, 189, 8*/
+    font-size: 1.2rem;
 }
