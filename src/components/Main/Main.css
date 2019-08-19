@@ -1,5 +1,6 @@
 .containerAboutUs {
     margin-top: 4rem;
+    position: relative;
 }
 .wrapperAboutUs {
     position: relative;
@@ -27,9 +28,9 @@
     top: 60%;
 }
 .employeeInf {
-    position: relative;
+    position: absolute !important;
     left: 35%;
-    top: -165%;
+    top: -5%;
     width: 30%;
     text-align: center;
     background-color: rgba(0,0,0,0.98) !important;
@@ -41,3 +42,16 @@
     background-color: rgba(9,13,0 , 0.15); /*251, 189, 8*/
     font-size: 1.2rem;
 }
+
+.jobsCards {
+    margin-top: 3rem;
+}
+
+.jobsCard {
+    border-radius: 1rem;
+    padding: 2rem;
+    color: white;
+    background-color: rgb(39,40,45);
+    box-shadow:0 4px 16px 0 rgba(0,0,0,.12);
+}
+

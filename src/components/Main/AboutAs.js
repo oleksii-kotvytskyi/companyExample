@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
-import {Header, Icon, Container, Image, TransitionablePortal, Segment, Divider} from 'semantic-ui-react';
+import { Header, Icon, Container, Image, TransitionablePortal, Segment, Divider } from 'semantic-ui-react';
 import './Main.css';
 import { aboutUsInf } from '../../api/dataForComponents';
 
 
 export class AboutAs extends Component {
+    constructor(props) {
+        super(props);
+        this.refAboutUs = React.createRef();
+        this.state = {
+            stateRefAboutUs : null,
+        }
+    }
+        componentDidMount() {
+        this.setState({
+                stateRefAboutUs: this.refAboutUs.current
+        })
+    }
 
     render() {
-        return (
-            <div className='containerAboutUs'>
+         return (
+            <div className='containerAboutUs' ref={this.refAboutUs}>
                 <Header as='h2' icon textAlign='center'>
                     <Icon name='users' circular color='green'/>
                     <Header.Content>About Us</Header.Content>
@@ -20,11 +32,13 @@ export class AboutAs extends Component {
                             { aboutUsInf.content }
                         </p>
                     </Container>
-                    {Array(3).fill(0).map((el, idx) => (
+                    {
+                        Array(3).fill(0).map((el, idx) => (
                         <TransitionablePortal
                             key={idx}
                             closeOnTriggerClick
                             openOnTriggerClick
+                            mountNode={this.state.stateRefAboutUs}
                             trigger={
                                 <Image
                                     src={aboutUsInf['photo'+idx].src}
@@ -33,8 +47,7 @@ export class AboutAs extends Component {
                                 />
                             }
                         >
-
-                            <Segment className='employeeInf' >
+                            <Segment className='employeeInf'>
                                 <Image
                                     src={aboutUsInf['photo'+idx].src}
                                     circular

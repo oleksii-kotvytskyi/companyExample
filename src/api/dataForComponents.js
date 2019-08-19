@@ -1,6 +1,6 @@
 const headerItems = [ 'About Us', 'What We Do', 'Jobs', 'Contact Us' ];
 const text = 'I am a very simple card. I am good at containing small bits of information';
-const whatWeDoInformation = [{
+const whatWeDoInf = [{
     tittle: 'Web Application',
     content: text,
     icon: 'js'
@@ -70,9 +70,28 @@ const aboutUsInf = {
         roll: 'Full Stack Developer'
     }
 };
+const jobsInf = [{
+        roll: 'Full Stack Developer',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque consectetur consequuntur dicta' +
+            ' dolor ea, eos inventore, magni nemo pariatur, perferendis praesentium quaerat quam quibusdam quos tempora ' +
+            'voluptate! Officia, tempora.'
+    },
+    {
+        roll: 'JavaScript Developer',
+        content: 'Containing small bits of information. Convenient because I require little markup to use effectively.\n' +
+            '\n' +
+            'I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.'
+    },
+    {
+        roll: 'Sales Manager',
+        content: 'Good at containing small bits of information. Very simple card. I am convenient because I require little markup to use effectively.\n' +
+            '\n' +
+            'Containing small bits of information. Convenient because I require little markup to use effectively.'
+    }];
 
 export {
     headerItems,
     aboutUsInf,
-    whatWeDoInformation
+    whatWeDoInf,
+    jobsInf
 };
