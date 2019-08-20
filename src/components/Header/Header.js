@@ -1,11 +1,15 @@
 import React from 'react';
-import { Menu, Image, Container, } from 'semantic-ui-react';
+import { Menu, Image, Container, Dropdown, } from 'semantic-ui-react';
 import Logo from '../../img/Logo.jpg';
 import './Header.css';
 import { headerItems } from '../../api/dataForComponents';
 
 const colorsA = ['yellow', 'green', 'blue', 'grey', 'yellow', 'teal'];
-
+const options = [
+    { key: 1, text: 'UA' },
+    { key: 2, text: 'Eng' },
+    { key: 3, text: 'Ru' },
+  ];
 
 export class Header extends React.Component {
     state = { activeA: null}
@@ -15,10 +19,10 @@ export class Header extends React.Component {
         const { activeA, } = this.state;
         return (
             <div >
-                <Menu className='menu' inverted size="massive" fixed='top' >
+                <Menu className='menu' inverted size="large" fixed='top' >
                     <Image src={Logo} size='small' />
                     <div className='menuItems'>
-                        {headerItems.map((el, idx) => (
+                        { headerItems.map((el, idx) => (
                             <Menu.Item
                                 key={el}
                                 name={el}
@@ -29,7 +33,17 @@ export class Header extends React.Component {
                                 size='small'
                             />
                         ))}
+                        {/* options={options} */}
                     </div>
+                    <Dropdown text='Language' simple item style={{height: '80%', alignItems: 'center'}} >
+                            <Dropdown.Menu>
+                            {options.map(el => (
+                                <Dropdown.Item key={el.key} style={{textAlign: 'center'}}>
+                                    {el.text}
+                                </Dropdown.Item>
+                            ))}
+                            </Dropdown.Menu>
+                        </Dropdown>
                 </Menu>
                 <Container fluid className='headerMainContent'>
                     <div className='animationContainer'>

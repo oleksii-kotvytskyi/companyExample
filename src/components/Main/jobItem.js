@@ -37,11 +37,14 @@ export class JobItem extends Component {
                             animation='scale'
                             duration={500}
                         >
+                            <div>
                             <p style={{padding: '1rem', clear:'both', width: '90%'}}>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos officia quisquam sit?
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab inventore iure magni praesentium
                                 quasi quisquam ullam voluptatem! Dicta, nam, repellat! Beatae delectus ex facilis neque quidem quisquam sint, sunt? Officiis.
                             </p>
+                            <Button style={{marginLeft: '1rem'}}>Send CV</Button>
+                            </div>
                         </Transition>
                     </Grid.Column>
                 </Ref>
