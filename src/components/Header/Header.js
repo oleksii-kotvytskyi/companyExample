@@ -35,7 +35,7 @@ export class Header extends React.Component {
                         ))}
                         {/* options={options} */}
                     </div>
-                    <Dropdown text='Language' simple item style={{height: '80%', alignItems: 'center'}} >
+                    <Dropdown text='Language' simple item style={{height: '90%', alignItems: 'center', marginTop: '30px'}} >
                             <Dropdown.Menu>
                             {options.map(el => (
                                 <Dropdown.Item key={el.key} style={{textAlign: 'center'}}>

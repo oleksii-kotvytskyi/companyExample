@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react';
-import { Header, Container, Grid, Divider, Button, Ref, Transition } from 'semantic-ui-react';
+import { Header, Grid, Divider, Button, Ref, Transition } from 'semantic-ui-react';
 
 
 export class JobItem extends Component {
@@ -17,27 +17,24 @@ export class JobItem extends Component {
             visible: !prevState.visible,
         }))
     }
-    handleSubmit = (e) => {
-        e.preventDefault();
-        if(this.cardRef.current.classList.contains('active')) {
-            let input = this.cardRef.current.querySelector('input[type="file"]')
+    callUploader = () => {
+        let ui = document.createElement('input');
+        ui.type = 'file';
+        ui.dispatchEvent(new MouseEvent('click'));
+        ui.addEventListener('change', () => {
             let data = new FormData();
-            data.append('file', input.files[0])
+            data.append('file', ui.files[0]);
             data.append('roll', this.props.roll);
 
             fetch('/data', {
                 method: 'POST',
                 body: data
-            }).then(el => console.log(el))
-        }
-    }
-
-    addBtn = () => {
-        setTimeout(() => this.setState({addFile: true}), 1000)
-    }
+            })
+        });
+    };
 
     render() {
-        const { roll, content} = this.props;
+        const { roll, content } = this.props;
         const { visible } = this.state;
         return(
             <Grid.Row  centered columns='2' style={{marginTop: '3rem'}}>
@@ -62,10 +59,7 @@ export class JobItem extends Component {
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab inventore iure magni praesentium
                                     quasi quisquam ullam voluptatem! Dicta, nam, repellat! Beatae delectus ex facilis neque quidem quisquam sint, sunt? Officiis.
                                 </p>
-                                <form action="" style={{marginLeft: '1rem'}} onSubmit={this.handleSubmit}>
-                                    <input type="file" name={`${roll}_CV`} onClick={this.addBtn}/>
-                                    <Button style={this.state.addFile ? {display: 'inline-block'} : {display: 'none'}}>Send CV</Button>
-                                </form>
+                                <Button onClick={this.callUploader} style={{marginLeft: '1rem'}}>SEND CV</Button>
                             </div>
                         </Transition>
                     </Grid.Column>

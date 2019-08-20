@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Header, Icon, Container, Grid, Divider, Button, Image, Ref, Transition } from 'semantic-ui-react';
+import React from 'react';
+import { Header, Icon, Grid, Divider } from 'semantic-ui-react';
 import { jobsInf } from '../../api/dataForComponents';
 import { JobItem } from "./jobItem";
 import './Main.css';
