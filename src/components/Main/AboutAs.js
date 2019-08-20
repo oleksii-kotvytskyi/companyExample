@@ -12,7 +12,7 @@ export class AboutAs extends Component {
             stateRefAboutUs : null,
         }
     }
-        componentDidMount() {
+    componentDidMount() {
         this.setState({
                 stateRefAboutUs: this.refAboutUs.current
         })
