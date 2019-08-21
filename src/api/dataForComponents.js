@@ -70,7 +70,8 @@ const aboutUsInf = {
         roll: 'Full Stack Developer'
     }
 };
-const jobsInf = [{
+const jobsInf = [
+    {
         roll: 'Full Stack Developer',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque consectetur consequuntur dicta' +
             ' dolor ea, eos inventore, magni nemo pariatur, perferendis praesentium quaerat quam quibusdam quos tempora ' +

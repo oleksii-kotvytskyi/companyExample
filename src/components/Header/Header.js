@@ -16,11 +16,11 @@ export class Header extends React.Component {
     handleAClick = (e,  {name} ) => this.setState({ activeA: name });
 
     render() {
-        const { activeA, } = this.state;
+        const { activeA } = this.state;
         return (
             <div >
                 <Menu className='menu' inverted size="large" fixed='top' >
-                    <Image src={Logo} size='small' />
+                    <Image src={Logo} style={{width: '120px'}} />
                     <div className='menuItems'>
                         { headerItems.map((el, idx) => (
                             <Menu.Item
@@ -35,15 +35,17 @@ export class Header extends React.Component {
                         ))}
                         {/* options={options} */}
                     </div>
-                    <Dropdown text='Language' simple item style={{height: '90%', alignItems: 'center', marginTop: '30px'}} >
+                    <div style={{display: 'flex', alignItems: 'center'}}>
+                        <Dropdown text='Language' simple item  >
                             <Dropdown.Menu>
-                            {options.map(el => (
-                                <Dropdown.Item key={el.key} style={{textAlign: 'center'}}>
-                                    {el.text}
-                                </Dropdown.Item>
-                            ))}
+                                {options.map(el => (
+                                    <Dropdown.Item key={el.key} style={{textAlign: 'center'}}>
+                                        {el.text}
+                                    </Dropdown.Item>
+                                ))}
                             </Dropdown.Menu>
                         </Dropdown>
+                    </div>
                 </Menu>
                 <Container fluid className='headerMainContent'>
                     <div className='animationContainer'>

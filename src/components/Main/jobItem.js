@@ -18,12 +18,12 @@ export class JobItem extends Component {
         }))
     }
     callUploader = () => {
-        let ui = document.createElement('input');
-        ui.type = 'file';
-        ui.dispatchEvent(new MouseEvent('click'));
-        ui.addEventListener('change', () => {
+        let inputFile = document.createElement('input');
+        inputFile.type = 'file';
+        inputFile.dispatchEvent(new MouseEvent('click'));
+        inputFile.addEventListener('change', () => {
             let data = new FormData();
-            data.append('file', ui.files[0]);
+            data.append('file', inputFile.files[0]);
             data.append('roll', this.props.roll);
 
             fetch('/data', {
@@ -37,7 +37,7 @@ export class JobItem extends Component {
         const { roll, content } = this.props;
         const { visible } = this.state;
         return(
-            <Grid.Row  centered columns='2' style={{marginTop: '3rem'}}>
+            <Grid.Row  centered columns='2' >
                 <Ref innerRef={this.cardRef}>
                     <Grid.Column className='jobsCard' >
                         <Header color='green'>
