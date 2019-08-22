@@ -17,7 +17,9 @@ export class JobItem extends Component {
         this.setState((prevState) => ({
             refCard: this.cardRef.current,
             visible: !prevState.visible,
-            reply: false
+            reply: false,
+            textArea: '',
+            file: null
         }))
     }
     replyMail = () => {
