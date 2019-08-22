@@ -1,12 +1,14 @@
 import React, { Component, createRef } from 'react';
-import { Header, Grid, Divider, Button, Ref, Transition } from 'semantic-ui-react';
+import { Header, Grid, Divider, Button, Ref, Transition, TextArea, Form } from 'semantic-ui-react';
 
 
 export class JobItem extends Component {
     state = {
         refCard: null,
         visible: false,
-        addFile: false
+        reply: false,
+        file: null,
+        textArea: ''
     }
     cardRef = createRef();
 
@@ -15,31 +17,42 @@ export class JobItem extends Component {
         this.setState((prevState) => ({
             refCard: this.cardRef.current,
             visible: !prevState.visible,
+            reply: false
         }))
+    }
+    replyMail = () => {
+        this.setState(prevState => ({reply: !prevState.reply}))
     }
     callUploader = () => {
         let inputFile = document.createElement('input');
         inputFile.type = 'file';
         inputFile.dispatchEvent(new MouseEvent('click'));
         inputFile.addEventListener('change', () => {
-            let data = new FormData();
-            data.append('file', inputFile.files[0]);
-            data.append('roll', this.props.roll);
-
-            fetch('/data', {
-                method: 'POST',
-                body: data
-            })
+            this.setState({file: inputFile.files[0]})
         });
     };
+    sendData = () => {
+        let data = new FormData();
+        data.append('file', this.state.file);
+        data.append('roll', this.props.roll);
+        data.append('text', this.state.textArea);
+
+        fetch('/data', {
+            method: 'POST',
+            body: data
+        })
+        this.setState({file: null, textArea: '', visible: false, reply: false});
+    }
+
+
 
     render() {
         const { roll, content } = this.props;
-        const { visible } = this.state;
+        const { visible, reply } = this.state;
         return(
-            <Grid.Row  centered columns='2' >
+            <Grid.Row centered  >
                 <Ref innerRef={this.cardRef}>
-                    <Grid.Column className='jobsCard' >
+                    <Grid.Column className='jobsCard' width='6' >
                         <Header color='green'>
                             {roll}
                         </Header>
@@ -59,7 +72,24 @@ export class JobItem extends Component {
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab inventore iure magni praesentium
                                     quasi quisquam ullam voluptatem! Dicta, nam, repellat! Beatae delectus ex facilis neque quidem quisquam sint, sunt? Officiis.
                                 </p>
-                                <Button onClick={this.callUploader} style={{marginLeft: '1rem'}}>SEND CV</Button>
+                                <Button onClick={this.replyMail} style={{marginLeft: '1rem'}}>Reply</Button>
+                                <Transition
+                                    visible={reply}
+                                    animation='scale'
+                                    duration={500}
+                                >
+                                    <div>
+                                        <Form style={{marginLeft: '1rem', marginTop: '1rem'}}>
+                                            <Form.TextArea placeholder='Tell us more' onChange={e => this.setState({textArea: e.target.value})} value={this.state.textArea} />
+                                            <Button onClick={this.callUploader} floated='left'>Add File</Button>
+                                            <span style={{lineHeight: 2.5}}>
+                                                {this.state.file ? this.state.file.name : ''}
+                                            </span>
+                                            <Button onClick={this.sendData} floated='right'>SEND</Button>
+
+                                        </Form>
+                                    </div>
+                                </Transition>
                             </div>
                         </Transition>
                     </Grid.Column>
@@ -69,3 +99,4 @@ export class JobItem extends Component {
     }
 
 }
+{/*<Button onClick={this.callUploader} style={{marginLeft: '1rem'}}>SEND CV</Button>*/}

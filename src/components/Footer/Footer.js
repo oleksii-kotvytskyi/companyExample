@@ -15,7 +15,16 @@ export class Footer extends Component {
                         Company Name © 2019 Copyright Text
                     </Grid.Column>
                     <Grid.Column width={6}>
-                        093-121-12-12
+                        <Grid.Row>
+                            <Grid.Column>
+                                <a href="tel:+380688902793">+380 68 890 27 93</a>
+                            </Grid.Column>
+                            <Grid.Column>
+                                <a href="mailto:web@msunligth.com?subject=Тема%20письма&body=Body:%0AНомер%20для%20связи:">web@sunligth.com</a>
+                            </Grid.Column>
+                        </Grid.Row>
+
+
                     </Grid.Column>
                 </Grid>
             </div>
