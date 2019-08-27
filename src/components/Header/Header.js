@@ -1,71 +1,73 @@
 import React from 'react';
-import { Menu, Image, Container, Dropdown, Responsive } from 'semantic-ui-react';
+import { Menu, Image, Container, Dropdown, Responsive, Sidebar, Segment } from 'semantic-ui-react';
+import styled  from 'styled-components';
 import Logo from '../../img/Logo.jpg';
-import './Header.css';
 import { headerItems } from '../../api/dataForComponents';
+import  { HeaderAnimeAndContent } from './HeaderAnimeAndContent';
 
-const colorsA = ['yellow', 'green', 'blue', 'grey', 'yellow', 'teal'];
+const MenuCustom = styled(Menu)`
+    display: flex !important;
+    justify-content: space-evenly;
+`;
+const SidebarCustom = styled(Sidebar)`
+    overflow-y: visible;
+`;
+const MenuItems = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+const ChooseLang = styled.div`
+    display: flex;
+    align-items: center;
+`;
 const options = [
     { key: 1, text: 'UA' },
     { key: 2, text: 'Eng' },
     { key: 3, text: 'Ru' },
   ];
 
+
+
+
 export class Header extends React.Component {
-    state = { activeA: null }
+    state = { activeA: null , curWidth: window.innerWidth || 0 }
     handleAClick = (e,  {name} ) => this.setState({ activeA: name });
+    handleOnUpdate = (e, { width }) => this.setState({curWidth:  width });
 
     render() {
-        const { activeA } = this.state;
+        const { activeA, curWidth } = this.state;
+        const mobileWidth = curWidth <= 550;
         return (
             <div >
-                {/*<Responsive >*/}
-                    <Menu className='menu' inverted size="large" fixed='top' >
+                <Responsive onUpdate={this.handleOnUpdate}>
+                    <SidebarCustom visible="true" as={MenuCustom}  inverted fixed='top' size='large'>
                         <Image src={Logo} style={{width: '120px'}} />
-                        <div className='menuItems'>
-                            { headerItems.map((el, idx) => (
+                        <MenuItems>
+                            { headerItems.map(el => (
                                 <Menu.Item
                                     key={el}
                                     name={el}
                                     active={activeA === el}
-                                    // color={colorsA[idx] || 'blue'}
-                                    // style={ activeA === el ? {backgroundColor: colorsA[idx],} : null}
                                     onClick={this.handleAClick}
                                     size='small'
                                 />
                             ))}
-                        </div>
-                        <div style={{display: 'flex', alignItems: 'center'}}>
+                        </MenuItems>
+                        <ChooseLang>
                             <Dropdown text='Language' simple item  >
-                                <Dropdown.Menu>
-                                    {options.map(el => (
+                                <Dropdown.Menu >
+                                    { options.map(el => (
                                         <Dropdown.Item key={el.key} style={{textAlign: 'center'}}>
                                             {el.text}
                                         </Dropdown.Item>
                                     ))}
                                 </Dropdown.Menu>
                             </Dropdown>
-                        </div>
-                    </Menu>
-                    <Container fluid className='headerMainContent'>
-                        <div className='animationContainer'>
-                            <p className='animationPart'>
-                                Pre Text
-                                <span className="animationText">
-                                Sunlight
-                            </span>
-                                Lorem ipsum dolor sit amet.
-                            </p>
-                        </div>
-                        <Container text textAlign='left'>
-                            <p>
-                                Cum deserunt dolorum id illum in magni necessitatibus nisi tenetur. Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit. Adipisci assumenda illum magni, quaerat quas quia quo rerum sapiente
-                                tempore voluptatem! Consectetur dolorum id illum in magni necessitatibus nisi tenetur.
-                            </p>
-                        </Container>
-                    </Container>
-                {/*</Responsive>*/}
+                        </ChooseLang>
+                    </SidebarCustom>
+                    <HeaderAnimeAndContent width={curWidth}/>
+                </Responsive>
             </div>
         )
     }
