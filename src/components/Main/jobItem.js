@@ -1,6 +1,30 @@
 import React, { Component, createRef } from 'react';
-import { Header, Container, Grid, Divider, Button, Ref, Transition } from 'semantic-ui-react';
+import {Header, Container, Grid, Divider, Button, Ref, Transition, Input} from 'semantic-ui-react';
 
+
+
+import { Icon, Modal } from 'semantic-ui-react'
+
+// const ModalBasicExample = (props) => (
+//     <Modal trigger={<Button circular={true} >SEND CV</Button>} basic size='small'>
+//         <Header icon='email' content='Send your CV' />
+//         <Modal.Content>
+//
+//             <p>
+//                 Your inbox is getting full, would you like us to enable automatic archiving of old messages?
+//             </p>
+//         </Modal.Content>
+//         <Modal.Actions>
+//             {/*onClick={this.close}*/}
+//             <Button basic color='red' inverted onClick={() => {}} >
+//                 <Icon name='remove' /> No
+//             </Button>
+//             <Button color='green' inverted>
+//                 <Icon name='checkmark' /> Yes
+//             </Button>
+//         </Modal.Actions>
+//     </Modal>
+// )
 
 export class JobItem extends Component {
     state = {
@@ -34,7 +58,23 @@ export class JobItem extends Component {
 
     addBtn = () => {
         setTimeout(() => this.setState({addFile: true}), 1000)
-    }
+    };
+
+    callUploader = () => {
+        const ui = document.createElement('input');
+        ui.type = 'file';
+        ui.dispatchEvent(new MouseEvent('click'));
+        ui.addEventListener('change', () => {
+            let data = new FormData();
+            data.append('file', ui.files[0]);
+            data.append('roll', this.props.roll);
+
+            fetch('/data', {
+                method: 'POST',
+                body: data
+            }).then(el => console.log(el))
+        });
+    };
 
     render() {
         const { roll, content} = this.props;
@@ -62,10 +102,16 @@ export class JobItem extends Component {
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab inventore iure magni praesentium
                                     quasi quisquam ullam voluptatem! Dicta, nam, repellat! Beatae delectus ex facilis neque quidem quisquam sint, sunt? Officiis.
                                 </p>
-                                <form action="" style={{marginLeft: '1rem'}} onSubmit={this.handleSubmit}>
+
+{/*                                <form action="" style={{marginLeft: '1rem'}} onSubmit={this.handleSubmit}>
                                     <input type="file" name={`${roll}_CV`} onClick={this.addBtn}/>
                                     <Button style={this.state.addFile ? {display: 'inline-block'} : {display: 'none'}}>Send CV</Button>
-                                </form>
+                                </form>*/}
+
+                                <div className="">
+                                    <Button circular={true} onClick={this.callUploader}>SEND CV</Button>
+                                </div>
+
                             </div>
                         </Transition>
                     </Grid.Column>
