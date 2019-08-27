@@ -1,38 +1,29 @@
-const headerItems = [ 'About Us', 'What We Do', 'Jobs', 'Contact Us' ];
+const headerItems = [ 'About Us', 'What We Do', 'Jobs' ];
 const text = 'I am a very simple card. I am good at containing small bits of information';
 const whatWeDoInf = [{
-    tittle: 'Web Application',
+    tittle: 'Prototype',
     content: text,
-    icon: 'js'
+    icon: 'sitemap',
+    color: 'black'
 }, {
-    tittle: 'Full application development circle',
+    tittle: 'Design',
     content: text,
     icon: 'sync',
     color: 'green'
 }, {
-    tittle: 'Plugins and Extensions',
+    tittle: 'Backend',
     content: text,
-    icon: 'gem'
-}, {
-    tittle: 'Support',
-    content: text,
-    icon: 'phone',
-    color: 'green'
-}, {
-    tittle: 'Prototype',
-    content: text,
-    icon: 'js',
-    color: 'black'
+    icon: 'php',
+    color: 'violet'
 }, {
     tittle: 'Frontend',
     content: text,
     icon: 'react',
     color: 'blue'
 }, {
-    tittle: 'Backend',
+    tittle: 'Plugins and Extensions',
     content: text,
-    icon: 'php',
-    color: 'violet'
+    icon: 'gem'
 }];
 const aboutUsInf = {
     content:
@@ -70,7 +61,8 @@ const aboutUsInf = {
         roll: 'Full Stack Developer'
     }
 };
-const jobsInf = [{
+const jobsInf = [
+    {
         roll: 'Full Stack Developer',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque consectetur consequuntur dicta' +
             ' dolor ea, eos inventore, magni nemo pariatur, perferendis praesentium quaerat quam quibusdam quos tempora ' +

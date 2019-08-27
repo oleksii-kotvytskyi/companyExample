@@ -12,7 +12,7 @@
     text-transform: uppercase;
     letter-spacing: .6rem;
     display: inline-block;
-    border: 4px double rgba(255, 255, 255, 0.75);
+    border: double rgba(255, 255, 255, 0.75);
     border-width: 4px 0;
     padding: 1.5rem 0;
     position: absolute;
@@ -20,6 +20,7 @@
     transform: translate(-50%, 0%);
     width: 40%;
 }
+
 .animationPart .animationText {
     font: 700 5rem "Oswald", sans-serif;
     letter-spacing: 0;

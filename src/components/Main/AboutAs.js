@@ -19,6 +19,8 @@ export class AboutAs extends Component {
     }
 
     render() {
+        const regExp = /^photo/i;
+        const renderArr = Object.keys(aboutUsInf).filter(el => regExp.test(el));
          return (
             <div className='containerAboutUs' ref={this.refAboutUs}>
                 <Header as='h2' icon textAlign='center'>
@@ -33,7 +35,7 @@ export class AboutAs extends Component {
                         </p>
                     </Container>
                     {
-                        Array(3).fill(0).map((el, idx) => (
+                        renderArr.map((el, idx) => (
                         <TransitionablePortal
                             key={idx}
                             closeOnTriggerClick
@@ -41,21 +43,21 @@ export class AboutAs extends Component {
                             mountNode={this.state.stateRefAboutUs}
                             trigger={
                                 <Image
-                                    src={aboutUsInf['photo'+idx].src}
+                                    src={aboutUsInf[el].src}
                                     circular
-                                    className={`wrapperAboutUs_photo photo${idx}`}
+                                    className={`wrapperAboutUs_photo ${el}`}
                                 />
                             }
                         >
                             <Segment className='employeeInf'>
                                 <Image
-                                    src={aboutUsInf['photo'+idx].src}
+                                    src={aboutUsInf[el].src}
                                     circular
                                     size='tiny'
                                     verticalAlign='top'
                                 />
-                                <Header style={{color: 'white'}}>{aboutUsInf['photo'+idx].fullName}</Header>
-                                <p>{aboutUsInf['photo'+idx].roll}</p>
+                                <Header style={{color: 'white'}}>{aboutUsInf[el].fullName}</Header>
+                                <p>{aboutUsInf[el].roll}</p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto at beatae blanditiis dignissimos eos error, eveniet incidunt laboriosam minima nam, nihil obcaecati odio odit praesentium quibusdam similique ut vel.</p>
                             </Segment>
                         </TransitionablePortal>

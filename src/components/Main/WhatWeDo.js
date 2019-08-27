@@ -14,7 +14,7 @@ export class WhatWeDo extends Component {
                 <Divider style={{width: '80%', margin: '0 auto'}}/>
                 <Grid columns={3} style={{width: '80%', margin: '3rem auto 3rem auto'}} centered>
                     { whatWeDoInf.map((el, idx) => (
-                        <Grid.Column key={idx}>
+                        <Grid.Column key={idx}  >
                             <Header as='h2' icon textAlign='center'>
                                 <Icon name={el.icon}  color={el.color ? el.color : 'yellow'} />
                                 <Header.Content>{el.tittle}</Header.Content>

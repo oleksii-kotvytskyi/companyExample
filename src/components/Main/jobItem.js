@@ -1,36 +1,14 @@
 import React, { Component, createRef } from 'react';
-import {Header, Container, Grid, Divider, Button, Ref, Transition, Input} from 'semantic-ui-react';
+import { Header, Grid, Divider, Button, Ref, Transition, TextArea, Form } from 'semantic-ui-react';
 
-
-
-import { Icon, Modal } from 'semantic-ui-react'
-
-// const ModalBasicExample = (props) => (
-//     <Modal trigger={<Button circular={true} >SEND CV</Button>} basic size='small'>
-//         <Header icon='email' content='Send your CV' />
-//         <Modal.Content>
-//
-//             <p>
-//                 Your inbox is getting full, would you like us to enable automatic archiving of old messages?
-//             </p>
-//         </Modal.Content>
-//         <Modal.Actions>
-//             {/*onClick={this.close}*/}
-//             <Button basic color='red' inverted onClick={() => {}} >
-//                 <Icon name='remove' /> No
-//             </Button>
-//             <Button color='green' inverted>
-//                 <Icon name='checkmark' /> Yes
-//             </Button>
-//         </Modal.Actions>
-//     </Modal>
-// )
 
 export class JobItem extends Component {
     state = {
         refCard: null,
         visible: false,
-        addFile: false
+        reply: false,
+        file: null,
+        textArea: ''
     }
     cardRef = createRef();
 
@@ -39,50 +17,44 @@ export class JobItem extends Component {
         this.setState((prevState) => ({
             refCard: this.cardRef.current,
             visible: !prevState.visible,
+            reply: false,
+            textArea: '',
+            file: null
         }))
     }
-    handleSubmit = (e) => {
-        e.preventDefault();
-        if(this.cardRef.current.classList.contains('active')) {
-            let input = this.cardRef.current.querySelector('input[type="file"]')
-            let data = new FormData();
-            data.append('file', input.files[0])
-            data.append('roll', this.props.roll);
-
-            fetch('/data', {
-                method: 'POST',
-                body: data
-            }).then(el => console.log(el))
-        }
+    replyMail = () => {
+        this.setState(prevState => ({reply: !prevState.reply}))
     }
-
-    addBtn = () => {
-        setTimeout(() => this.setState({addFile: true}), 1000)
-    };
-
     callUploader = () => {
-        const ui = document.createElement('input');
-        ui.type = 'file';
-        ui.dispatchEvent(new MouseEvent('click'));
-        ui.addEventListener('change', () => {
-            let data = new FormData();
-            data.append('file', ui.files[0]);
-            data.append('roll', this.props.roll);
-
-            fetch('/data', {
-                method: 'POST',
-                body: data
-            }).then(el => console.log(el))
+        let inputFile = document.createElement('input');
+        inputFile.type = 'file';
+        inputFile.dispatchEvent(new MouseEvent('click'));
+        inputFile.addEventListener('change', () => {
+            this.setState({file: inputFile.files[0]})
         });
     };
+    sendData = () => {
+        let data = new FormData();
+        data.append('file', this.state.file);
+        data.append('roll', this.props.roll);
+        data.append('text', this.state.textArea);
+
+        fetch('/data', {
+            method: 'POST',
+            body: data
+        })
+        this.setState({file: null, textArea: '', visible: false, reply: false});
+    }
+
+
 
     render() {
-        const { roll, content} = this.props;
-        const { visible } = this.state;
+        const { roll, content } = this.props;
+        const { visible, reply } = this.state;
         return(
-            <Grid.Row  centered columns='2' style={{marginTop: '3rem'}}>
+            <Grid.Row centered  >
                 <Ref innerRef={this.cardRef}>
-                    <Grid.Column className='jobsCard' >
+                    <Grid.Column className='jobsCard' width='6' >
                         <Header color='green'>
                             {roll}
                         </Header>
@@ -102,16 +74,24 @@ export class JobItem extends Component {
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab inventore iure magni praesentium
                                     quasi quisquam ullam voluptatem! Dicta, nam, repellat! Beatae delectus ex facilis neque quidem quisquam sint, sunt? Officiis.
                                 </p>
+                                <Button onClick={this.replyMail} style={{marginLeft: '1rem'}}>Reply</Button>
+                                <Transition
+                                    visible={reply}
+                                    animation='scale'
+                                    duration={500}
+                                >
+                                    <div>
+                                        <Form style={{marginLeft: '1rem', marginTop: '1rem'}}>
+                                            <Form.TextArea placeholder='Tell us more' onChange={e => this.setState({textArea: e.target.value})} value={this.state.textArea} />
+                                            <Button onClick={this.callUploader} floated='left'>Add File</Button>
+                                            <span style={{lineHeight: 2.5}}>
+                                                {this.state.file ? this.state.file.name : ''}
+                                            </span>
+                                            <Button onClick={this.sendData} floated='right'>SEND</Button>
 
-{/*                                <form action="" style={{marginLeft: '1rem'}} onSubmit={this.handleSubmit}>
-                                    <input type="file" name={`${roll}_CV`} onClick={this.addBtn}/>
-                                    <Button style={this.state.addFile ? {display: 'inline-block'} : {display: 'none'}}>Send CV</Button>
-                                </form>*/}
-
-                                <div className="">
-                                    <Button circular={true} onClick={this.callUploader}>SEND CV</Button>
-                                </div>
-
+                                        </Form>
+                                    </div>
+                                </Transition>
                             </div>
                         </Transition>
                     </Grid.Column>
