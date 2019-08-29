@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react';
-import { Header, Container, Grid, Divider, Button, Ref, Transition, Form } from 'semantic-ui-react';
+import { Header, Grid, Divider, Button, Ref, Transition, Form } from 'semantic-ui-react';
 
 
 export class JobItem extends Component {

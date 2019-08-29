@@ -13,7 +13,6 @@ export class App extends Component {
 
 
     render () {
-
         const {width, changeUIWidth} = this.props;
 
         return (

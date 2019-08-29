@@ -55,12 +55,33 @@
     display: flex;
     justify-content: space-evenly;
 }
+.ui.menu::after {
+    content: none !important;
+}
 .menuItems {
     display: flex;
     align-items: center;
 }
-/* .headerDescription {
-    width: 40%;
-    margin: 0 auto;
-    line-height: 1.7;
-} */
+.ui.top.fixed {
+    overflow-y: visible !important;
+}
+@media (max-width: 550px)  {
+    .menu {
+        justify-content: space-between;
+    }
+    .menuItems {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background-color: rgb(27,28,29);
+        left: 0;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-right: 20px;
+        /*color: white;*/
+    }
+    .menuItems > .item::before {
+        width: 0px !important;
+    }
+
+}

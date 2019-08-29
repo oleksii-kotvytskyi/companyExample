@@ -1,10 +1,6 @@
 
 export const isBrowser = () => typeof window !== undefined;
 
-export const getWidth = () => {
-    if (isBrowser())
-        return window.innerWidth;
+export const getWidth = () => isBrowser() ? window.innerWidth : 0;
 
-    return 0
-};
 
