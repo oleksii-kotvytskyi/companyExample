@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react';
-import { Header, Grid, Divider, Button, Ref, Transition, TextArea, Form } from 'semantic-ui-react';
+import { Header, Container, Grid, Divider, Button, Ref, Transition, Form } from 'semantic-ui-react';
 
 
 export class JobItem extends Component {
@@ -17,7 +17,9 @@ export class JobItem extends Component {
         this.setState((prevState) => ({
             refCard: this.cardRef.current,
             visible: !prevState.visible,
-            reply: false
+            reply: false,
+            textArea: '',
+            file: null
         }))
     }
     replyMail = () => {
@@ -99,4 +101,3 @@ export class JobItem extends Component {
     }
 
 }
-{/*<Button onClick={this.callUploader} style={{marginLeft: '1rem'}}>SEND CV</Button>*/}
