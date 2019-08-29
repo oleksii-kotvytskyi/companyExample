@@ -20,7 +20,9 @@ export class JobItem extends Component {
             reply: false
         }))
     }
-    replyMail = () => this.setState(prevState => ({reply: !prevState.reply}))
+    replyMail = () => {
+        this.setState(prevState => ({reply: !prevState.reply}))
+    }
     callUploader = () => {
         let inputFile = document.createElement('input');
         inputFile.type = 'file';
@@ -47,7 +49,6 @@ export class JobItem extends Component {
     render() {
         const { roll, content } = this.props;
         const { visible, reply } = this.state;
-        console.log(reply);
         return(
             <Grid.Row centered  >
                 <Ref innerRef={this.cardRef}>
@@ -59,7 +60,7 @@ export class JobItem extends Component {
                             {content}
                         </p>
                         <Divider />
-                        <Button icon='angle down' floated='right' active={visible} onClick={this.handleClick} inverted color='green' />
+                        <Button icon='angle down' floated='right' onClick={this.handleClick} inverted color='green' active={visible}/>
                         <Transition
                             visible={visible}
                             animation='scale'
@@ -71,10 +72,7 @@ export class JobItem extends Component {
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab inventore iure magni praesentium
                                     quasi quisquam ullam voluptatem! Dicta, nam, repellat! Beatae delectus ex facilis neque quidem quisquam sint, sunt? Officiis.
                                 </p>
-                                <div style={{textAlign: 'center'}}>
-                                    <Button onClick={this.replyMail}  toggle active={reply}>Reply</Button>
-                                </div>
-
+                                <Button onClick={this.replyMail} style={{marginLeft: '1rem'}}>Reply</Button>
                                 <Transition
                                     visible={reply}
                                     animation='scale'

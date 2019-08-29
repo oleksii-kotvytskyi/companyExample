@@ -23,6 +23,8 @@ export class Footer extends Component {
                                 <a href="mailto:web@msunligth.com?subject=Тема%20письма&body=Body:%0AНомер%20для%20связи:">web@sunligth.com</a>
                             </Grid.Column>
                         </Grid.Row>
+
+
                     </Grid.Column>
                 </Grid>
             </div>
