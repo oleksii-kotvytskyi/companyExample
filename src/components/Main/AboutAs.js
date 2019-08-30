@@ -21,19 +21,19 @@ export class AboutAs extends Component {
     render() {
         const regExp = /^photo/i;
         const renderArr = Object.keys(aboutUsInf).filter(el => regExp.test(el));
+
          return (
             <div className='containerAboutUs' ref={this.refAboutUs}>
                 <Header as='h2' icon textAlign='center'>
                     <Icon name='users' circular color='green'/>
                     <Header.Content>About Us</Header.Content>
                 </Header>
-                <Divider style={{width: '80%', margin: '0 auto'}}/>
-                <Container className='wrapperAboutUs'>
-                    <Container text>
-                        <p>
-                            { aboutUsInf.content }
-                        </p>
-                    </Container>
+                <Divider className='isDivider'/>
+                <div className='wrapperAboutUs'>
+                    <p className='descriptionAboutUs'>
+                        { aboutUsInf.content }
+                    </p>
+                    <div className='photosAboutUs'>
                     {
                         renderArr.map((el, idx) => (
                         <TransitionablePortal
@@ -62,7 +62,8 @@ export class AboutAs extends Component {
                             </Segment>
                         </TransitionablePortal>
                     ))}
-                </Container>
+                    </div>
+                </div>
             </div>
         );
     }

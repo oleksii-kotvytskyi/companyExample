@@ -33,17 +33,7 @@ const aboutUsInf = {
         'enim excepturi exercitationem facilis ipsa laborum magnam magni molestias nam nesciunt nihil\n' +
         'odit porro provident quae quo repellendus rerum sed ullam voluptatibus, voluptatum. Adipisci\n' +
         'aliquam at dolore, esse maxime mollitia omnis quam repudiandae sed similique soluta unde velit.\n' +
-        'Accusamus accusantium adipisci asperiores blanditiis consectetur culpa dolorem doloremque\n' +
-        'dolores doloribus excepturi facilis harum hic impedit laboriosam maxime modi nesciunt officia\n' +
-        'optio pariatur quibusdam recusandae, repellendus reprehenderit, repudiandae saepe sapiente\n' +
-        'soluta suscipit vel vero voluptatibus voluptatum. Doloremque expedita in reiciendis! Alias\n' +
-        'assumenda beatae, commodi consequuntur debitis doloribus ducimus error esse eum fuga in iure,\n' +
-        'labore magnam nam nemo, nihil nisi nulla odio officia omnis perspiciatis repellat repellendus\n' +
-        'reprehenderit suscipit velit. Ad aut deleniti deserunt dicta dolores ea ex harum in inventore,\n' +
-        'laborum magni nemo nisi nobis placeat provident quaerat repudiandae! Ab adipisci alias aperiam\n' +
-        'aspernatur dicta dolorem doloribus ducimus fugit iure laudantium minus nostrum odit possimus,\n' +
-        'praesentium provident quam quod reiciendis saepe suscipit veritatis vitae voluptas voluptatem.\n' +
-        'Blanditiis fugit ipsam neque officiis saepe totam.',
+        'Accusamus accusantium adipisci asperiores blanditiis consectetur culpa dolorem doloremque',
     photo0: {
         src: 'https://seeklogo.com/images/F/flat-man-icon-logo-A0FEC16B6D-seeklogo.com.png',
         fullName: 'Aleksey Kotvitsky',

@@ -11,7 +11,7 @@ export  const Jobs = () => {
                 <Icon name='briefcase' circular color='green'/>
                 <Header.Content>Jobs</Header.Content>
             </Header>
-            <Divider style={{width: '80%', margin: '0 auto'}}/>
+            <Divider className='isDivider'/>
             <Grid className='jobsCards'>
                 { jobsInf.map((card, idx) =>
                     <JobItem roll={card.roll} content={card.content} key={idx}/>) }

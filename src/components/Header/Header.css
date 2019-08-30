@@ -6,7 +6,7 @@
 }
 .animationContainer {
     position: relative;
-    height: 60vh;
+    height: 50vh;
 }
 .animationContainer .animationPart {
     text-transform: uppercase;
@@ -16,9 +16,9 @@
     border-width: 4px 0;
     padding: 1.5rem 0;
     position: absolute;
-    top: 30%;
+    top: 150px;
     transform: translate(-50%, 0%);
-    width: 40%;
+    width: 550px;
 }
 
 .animationPart .animationText {
@@ -50,6 +50,10 @@
         background-position: 100% 50%;
     }
 }
+.companyDescription {
+    width: 80%;
+    margin: 2rem auto 0 auto;
+}
 
 .menu {
     display: flex;
@@ -58,15 +62,22 @@
 .ui.menu::after {
     content: none !important;
 }
-.menuItems {
-    display: flex;
+.menuItems.menuItems.menuItems {
+    display: flex !important;
     align-items: center;
 }
 .ui.top.fixed {
     overflow-y: visible !important;
 }
+.imgLogo {
+    width: 120px;
+}
+.dropdownLang {
+    display: flex;
+    align-items: center;
+}
 @media (max-width: 550px)  {
-    .menu {
+    .menu.menu    {
         justify-content: space-between;
     }
     .menuItems {
@@ -76,12 +87,31 @@
         background-color: rgb(27,28,29);
         left: 0;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: flex-end !important;
         padding-right: 20px;
-        /*color: white;*/
     }
     .menuItems > .item::before {
         width: 0px !important;
     }
-
+    .imgLogo {
+        width: 80px;
+        height: 80px;
+        align-self: center;
+        margin-left: 2rem;
+    }
+    .mobileIcon.mobileIcon {
+        align-self: center;
+        font-size: 2.7rem;
+        line-height: 2.7rem;
+        margin-right: 2rem;
+    }
+    .animationContainer .animationPart {
+        width: 300px;
+    }
+    .animationPart .animationText {
+        font-size: 3.5rem;
+    }
+    .headerMainContent {
+        height: 100vh;
+    }
 }

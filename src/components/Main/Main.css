@@ -6,26 +6,37 @@
     position: relative;
     margin-top: 4rem;
 }
+.descriptionAboutUs {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
 .wrapperAboutUs_photo {
     position: absolute !important;
-    width: 190px;
+    width: 140px;
 }
 .wrapperAboutUs_photo:hover {
     cursor: pointer;
 }
+.isDivider {
+    width: 80%;
+    margin: 0 auto !important;
+}
 .photo0 {
-    left: -5%;
-    top: -10%;
+    left: 10%;
+    top: -12%;
 }
 
 .photo1 {
-    right: 0%;
+    right: 10%;
     top: 20%;
 }
 
 .photo2 {
-    left: -5%;
-    top: 60%;
+    left: 10%;
+    top: 145px;
 }
 .employeeInf {
     position: absolute !important;
@@ -36,6 +47,7 @@
     background-color: rgba(0,0,0,0.98) !important;
     color: white;
 }
+
 .containerWhatWeDo {
     margin-top: 5rem;
     padding-top: 4rem;
@@ -54,4 +66,47 @@
     background-color: rgb(39,40,45);
     box-shadow:0 4px 16px 0 rgba(0,0,0,.12);
 }
+@media (min-width: 680px) and (max-width: 1350px) {
+    .photosAboutUs {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+    }
+    .wrapperAboutUs_photo {
+        position: static !important;
+        width: 140px;
+    }
+    .descriptionAboutUs {
+        width: 80%;
+        padding-top: 0;
+    }
+    .employeeInf {
+        width: 50%;
+        left: 25%;
+    }
+}
 
+@media (max-width: 680px) {
+    .photosAboutUs {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+    }
+    .isDivider {
+        width: 100%;
+    }
+    .descriptionAboutUs {
+        width: 90%;
+        padding-top: 0;
+    }
+    .wrapperAboutUs_photo {
+        position: static !important;
+        width: 100px;
+    }
+    .employeeInf {
+        width: 90%;
+        bottom: 20%;
+        top: 30%;
+        left: 5%;
+    }
+}
