@@ -21,7 +21,7 @@ export class MobileSidebar extends React.Component {
                    <TransitionablePortal
                        closeOnTriggerClick
                        mountNode={headerRef.current || document.body}
-                       open={isMobile}
+                       // open={isMobile}
                        openOnTriggerClick
                        transition={{
                            animation: 'slide down',

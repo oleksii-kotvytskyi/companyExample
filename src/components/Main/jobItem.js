@@ -13,7 +13,7 @@ export class JobItem extends Component {
     cardRef = createRef();
 
     handleClick = () => {
-        this.cardRef.current.classList.toggle('active');
+
         this.setState((prevState) => ({
             refCard: this.cardRef.current,
             visible: !prevState.visible,
@@ -54,7 +54,13 @@ export class JobItem extends Component {
         return(
             <Grid.Row centered  >
                 <Ref innerRef={this.cardRef}>
-                    <Grid.Column className='jobsCard' width='6' >
+                    <Grid.Column
+                        className='jobsCard'
+                        largeScreen={6}
+                        computer={8}
+                        tablet={10}
+                        mobile={14}
+                    >
                         <Header color='green'>
                             {roll}
                         </Header>

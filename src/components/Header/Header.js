@@ -12,7 +12,8 @@ export class Header extends React.Component {
     }
 
     handleAClick = (e,  { name } ) => this.setState({ activeA: name });
-    handleOnUpdate = (e, { width }) => this.setState({curWidth: width});
+    handleOnUpdate = (e, { width }) => this.setState({ curWidth: width });
+
     componentDidMount = () => {
         this.setState({}) // fixMe - without it dont work TransitionablePortal ....
     }
@@ -22,16 +23,16 @@ export class Header extends React.Component {
         const isMobile = curWidth <= 550;
 
         return (
-                <Responsive onUpdate={this.handleOnUpdate} className='containerHeader'>
-                    <DesktopSidebar activeA={activeA} handleClick={this.handleAClick} isMobile={isMobile} />
-                    <MobileSidebar
-                        activeA={activeA}
-                        handleClick={this.handleAClick}
-                        isMobile={isMobile}
-                        headerRef={this.headerRef}
-                    />
-                    <HeaderContent />
-                </Responsive>
+            <Responsive onUpdate={this.handleOnUpdate} className='containerHeader'>
+                <DesktopSidebar activeA={activeA} handleClick={this.handleAClick} isMobile={isMobile} />
+                <MobileSidebar
+                    activeA={activeA}
+                    handleClick={this.handleAClick}
+                    isMobile={isMobile}
+                    headerRef={this.headerRef}
+                />
+                <HeaderContent />
+            </Responsive>
         )
     }
 }

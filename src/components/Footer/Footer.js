@@ -10,11 +10,11 @@ export class Footer extends Component {
 
         return (
             <div className='containerFooter' >
-                <Grid textAlign={'center'} style={{backgroundColor: 'rgba(0,0,0,.87)', color: 'white'}}>
-                    <Grid.Column width={6}>
+                <Grid textAlign={'center'} style={{backgroundColor: 'rgba(0,0,0,.87)', color: 'white', margin: 0}}>
+                    <Grid.Column computer={6} mobile={12}>
                         Company Name © 2019 Copyright Text
                     </Grid.Column>
-                    <Grid.Column width={6}>
+                    <Grid.Column computer={6} mobile={12}>
                         <Grid.Row>
                             <Grid.Column>
                                 <a href="tel:+380688902793">+380 68 890 27 93</a>
