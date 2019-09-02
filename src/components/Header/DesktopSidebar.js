@@ -5,14 +5,24 @@ import './Header.css';
 import { headerItems } from '../../api/dataForComponents';
 
 const options = [
-    { key: 1, text: 'UA' },
-    { key: 2, text: 'Eng' },
-    { key: 3, text: 'Ru' },
+    { key: 1, text: 'ua' },
+    { key: 2, text: 'en' },
 ];
 
 export class DesktopSidebar extends React.Component {
     render() {
-        const { activeA, handleClick, isMobile, } = this.props;
+
+        const {
+          activeA,
+          handleClick,
+          isMobile,
+          setUILanguage,
+        } = this.props;
+
+        const changeLanguage = (lang) => {
+          setUILanguage(lang);
+        };
+
         return(
             <Sidebar as={Menu}  visible={!isMobile} className='menu' inverted size="large" fixed='top'>
                 <Image src={Logo}  className='imgLogo' />
@@ -28,10 +38,14 @@ export class DesktopSidebar extends React.Component {
                     ))}
                 </div>
                 <div className='dropdownLang'>
-                    <Dropdown text='Language' simple item  onClick={handleClick}>
+                    <Dropdown text='Language' simple item>
                         <Dropdown.Menu>
                             {options.map(el => (
-                                <Dropdown.Item key={el.key} style={{textAlign: 'center'}}>
+                                <Dropdown.Item
+                                  key={el.key}
+                                  style={{textAlign: 'center'}}
+                                  value={el.text}
+                                  onClick={() => {changeLanguage(el.text)}} >
                                     {el.text}
                                 </Dropdown.Item>
                             ))}

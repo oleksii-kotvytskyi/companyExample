@@ -8,11 +8,11 @@ const localState = {
     },
     content: {
         header: {},
-        sectionIntro: {},
-        sectionAbout: {},
-        sectionWhatWeDo: {},
-        sectionJobs: {},
-        sectionFooter: {},
+        intro: {},
+        about: {},
+        wedo: {},
+        jobs: {},
+        footer: {},
     },
 };
 
@@ -21,10 +21,10 @@ const reducer = (state = localState, action) => {
     switch (action.type) {
 
         case CHANGE_UI_WIDTH:
-            return {...state, ui: {width: action.payload} };
+            return {...state, ...{ui: {...state.ui, ...{width: action.payload}}}};
 
         case CHANGE_UI_LANGUAGE:
-            return {...state, ui: {language: action.payload} };
+            return {...state, ...{ui: {...state.ui, ...{language: action.payload}}}};
 
         case WRITE_IN_CONTENT:
             return {...state, content: action.payload };

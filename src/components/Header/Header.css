@@ -3,6 +3,7 @@
     background: rgba(9,13,0 , 0.15); /*251, 189, 8*/
     text-align: center;
     height: 80vh;
+    margin-top: 80px;
 }
 .animationContainer {
     position: relative;
