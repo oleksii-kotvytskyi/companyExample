@@ -23,7 +23,7 @@ export class AboutAs extends Component {
         const renderArr = Object.keys(aboutUsInf).filter(el => regExp.test(el));
 
          return (
-            <div className='containerAboutUs' ref={this.refAboutUs}>
+            <div className='containerAboutUs' ref={this.refAboutUs} id='About_Us'>
                 <Header as='h2' icon textAlign='center'>
                     <Icon name='users' circular color='green'/>
                     <Header.Content>About Us</Header.Content>

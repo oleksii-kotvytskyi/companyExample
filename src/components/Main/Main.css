@@ -1,6 +1,22 @@
 .containerAboutUs {
-    margin-top: 4rem;
+    padding-top: 160px;
+    margin-top: -80px;
     position: relative;
+    padding-bottom: 80px;
+    margin-bottom: 160px;
+}
+.containerWhatWeDo {
+    padding-top: 120px;
+    background-color: rgba(9,13,0 , 0.15); /*251, 189, 8*/
+    font-size: 1.2rem;
+    padding-bottom: 2rem;
+}
+.containerWhatWeDo.containerWhatWeDo.containerWhatWeDo {
+    margin-top: -80px !important;
+}
+.containerJobs {
+    padding-top: 160px;
+    margin-top: -80px;
 }
 .wrapperAboutUs {
     position: relative;
@@ -47,18 +63,9 @@
     background-color: rgba(0,0,0,0.98) !important;
     color: white;
 }
-
-.containerWhatWeDo {
-    margin-top: 5rem;
-    padding-top: 4rem;
-    background-color: rgba(9,13,0 , 0.15); /*251, 189, 8*/
-    font-size: 1.2rem;
-}
-
 .jobsCards {
     margin: 2rem 0 !important;
 }
-
 .jobsCard {
     border-radius: 1rem;
     padding: 2rem;

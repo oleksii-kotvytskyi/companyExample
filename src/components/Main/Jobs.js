@@ -6,7 +6,7 @@ import './Main.css';
 
 export  const Jobs = () => {
     return (
-        <div >
+        <div id='Jobs' className='containerJobs'>
             <Header as='h2' icon textAlign='center' >
                 <Icon name='briefcase' circular color='green'/>
                 <Header.Content>Jobs</Header.Content>

@@ -3,11 +3,13 @@
     background: rgba(9,13,0 , 0.15); /*251, 189, 8*/
     text-align: center;
     height: 80vh;
+
 }
 .animationContainer {
     position: relative;
     height: 50vh;
 }
+
 .animationContainer .animationPart {
     text-transform: uppercase;
     letter-spacing: .6rem;

@@ -23,7 +23,7 @@ export class Header extends React.Component {
         const isMobile = curWidth <= 550;
 
         return (
-            <Responsive onUpdate={this.handleOnUpdate} className='containerHeader'>
+            <Responsive onUpdate={this.handleOnUpdate} className='containerHeader' id='Header'>
                 <DesktopSidebar activeA={activeA} handleClick={this.handleAClick} isMobile={isMobile} />
                 <MobileSidebar
                     activeA={activeA}

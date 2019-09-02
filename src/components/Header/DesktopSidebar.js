@@ -15,17 +15,21 @@ export class DesktopSidebar extends React.Component {
         const { activeA, handleClick, isMobile, } = this.props;
         return(
             <Sidebar as={Menu}  visible={!isMobile} className='menu' inverted size="large" fixed='top'>
-                <Image src={Logo}  className='imgLogo' />
+                <Image src={Logo}  className='imgLogo' as='a' href='#Header'/>
                 <div className='menuItems'>
-                    { headerItems.map(el => (
-                        <Menu.Item
-                            key={el}
-                            name={el}
-                            active={activeA === el}
-                            onClick={handleClick}
-                            size='small'
-                        />
-                    ))}
+                    { headerItems.map(el => {
+                        return (
+                            <Menu.Item
+                                as='a'
+                                href={`#${el}`}
+                                key={el}
+                                name={/_/g.test(el) ? el.replace('_', ' ') : el}
+                                active={activeA === el || false}
+                                onClick={handleClick}
+                                size='small'
+                            />
+                        )
+                    })}
                 </div>
                 <div className='dropdownLang'>
                     <Dropdown text='Language' simple item  onClick={handleClick}>

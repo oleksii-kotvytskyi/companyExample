@@ -10,7 +10,7 @@ export class WhatWeDo extends Component {
     let columns = isMobile() ? 1 : 3;
 
     return (
-      <div className='containerWhatWeDo'>
+      <div className='containerWhatWeDo' id='What_We_Do' >
         <Header as='h2' icon textAlign='center'>
           <Icon name='angrycreative' circular color='olive'/>
           <Header.Content>What We Do</Header.Content>

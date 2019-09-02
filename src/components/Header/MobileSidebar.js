@@ -36,15 +36,19 @@ export class MobileSidebar extends React.Component {
                        }
                    >
                        <div className={`menuItems`}>
-                           { headerItems.map(el => (
-                               <Menu.Item
-                                   key={el}
-                                   name={el}
-                                   active={activeA === el || false}
-                                   onClick={handleClick}
-                                   size='small'
-                               />
-                           ))}
+                           { headerItems.map(el => {
+                               return (
+                                   <Menu.Item
+                                       as='a'
+                                       href={`#${el}`}
+                                       key={el}
+                                       name={/_/g.test(el) ? el.replace('_', ' ') : el}
+                                       active={activeA === el || false}
+                                       onClick={handleClick}
+                                       size='small'
+                                   />
+                               )
+                           })}
                            <Dropdown text='Language' simple item onClick={handleClick} >
                                <Dropdown.Menu >
                                    {options.map(el => (

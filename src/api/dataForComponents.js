@@ -1,4 +1,4 @@
-const headerItems = [ 'About Us', 'What We Do', 'Jobs' ];
+const headerItems = [ 'About_Us', 'What_We_Do', 'Jobs' ];
 const text = 'I am a very simple card. I am good at containing small bits of information';
 const whatWeDoInf = [{
     tittle: 'Prototype',
