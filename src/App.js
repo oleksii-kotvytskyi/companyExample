@@ -18,10 +18,10 @@ export class App extends Component {
         this.loadContent();
     }
 
-    loadContent () {
+    loadContent (lang) {
         const { language, setUIContent, } = this.props;
 
-        fetch(SERVER_URL + language).then(function(response) {
+        fetch(SERVER_URL + (lang || language)).then(function(response) {
             response.json().then( (response) => {
                 console.log('response', response);
 
@@ -53,10 +53,15 @@ export class App extends Component {
             contentFooter,
         } = this.props;
 
+        const changeLanguage = (lang) => {
+            setUILanguage(lang);
+            this.loadContent(lang);
+        };
+
         return (
             <Responsive getWidth={() => {setUIWidth(isBrowser() ? getWidth() : 0)}}>
                 <div className="App">
-                    <Header setUILanguage={setUILanguage} />
+                    <Header sectionData={contentHeader} changeLanguage={changeLanguage} />
                     <AboutAs />
                     <WhatWeDo />
                     <Jobs />

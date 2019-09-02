@@ -24,10 +24,8 @@ export class Header extends React.Component {
     };
 
     render() {
-        const {
-            activeA,
-            curWidth,
-        } = this.state;
+        const { activeA, curWidth, } = this.state;
+        const { sectionData, changeLanguage } = this.props;
 
         const isMobile = curWidth <= 550;
 
@@ -37,16 +35,16 @@ export class Header extends React.Component {
                   activeA={activeA}
                   handleClick={this.handleAClick}
                   isMobile={isMobile}
-                  setUILanguage={this.props.setUILanguage}
+                  changeLanguage={changeLanguage}
                 />
                 <MobileSidebar
                     activeA={activeA}
                     handleClick={this.handleAClick}
                     isMobile={isMobile}
                     headerRef={this.headerRef}
-                    setUILanguage={this.props.setUILanguage}
+                    changeLanguage={changeLanguage}
                 />
-                <HeaderContent />
+                <HeaderContent sectionData={sectionData} />
             </Responsive>
         )
     }

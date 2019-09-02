@@ -16,12 +16,8 @@ export class DesktopSidebar extends React.Component {
           activeA,
           handleClick,
           isMobile,
-          setUILanguage,
+          changeLanguage,
         } = this.props;
-
-        const changeLanguage = (lang) => {
-          setUILanguage(lang);
-        };
 
         return(
             <Sidebar as={Menu}  visible={!isMobile} className='menu' inverted size="large" fixed='top'>

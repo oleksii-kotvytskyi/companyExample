@@ -1,8 +1,8 @@
 import React from 'react';
 import './Header.css';
 
- export default function HeaderContent() {
-    return    (
+ export default function HeaderContent({sectionData}) {
+    return (
         <div className='headerMainContent'>
             <div className='animationContainer'>
                 <p className='animationPart'>
@@ -14,9 +14,7 @@ import './Header.css';
                 </p>
             </div>
             <p className='companyDescription'>
-                Cum deserunt dolorum id illum in magni necessitatibus nisi tenetur. Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit. Adipisci assumenda illum magni, quaerat quas quia quo rerum sapiente
-                tempore voluptatem! Consectetur dolorum id illum in magni necessitatibus nisi tenetur.
+              {sectionData.content}
             </p>
         </div>
     )

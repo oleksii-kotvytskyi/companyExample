@@ -5,14 +5,13 @@ import './Header.css';
 import { headerItems } from '../../api/dataForComponents';
 
 const options = [
-    { key: 1, text: 'UA' },
-    { key: 2, text: 'Eng' },
-    { key: 3, text: 'Ru' },
+    { key: 1, text: 'ua' },
+    { key: 2, text: 'en' },
 ];
 
 export class MobileSidebar extends React.Component {
     render() {
-        const { activeA, handleClick, isMobile, headerRef } = this.props;
+        const { activeA, handleClick, isMobile, headerRef, changeLanguage } = this.props;
 
        return (
            <Ref innerRef={headerRef} >
@@ -48,7 +47,10 @@ export class MobileSidebar extends React.Component {
                            <Dropdown text='Language' simple item onClick={handleClick} >
                                <Dropdown.Menu >
                                    {options.map(el => (
-                                       <Dropdown.Item key={el.key} style={{textAlign: 'center'}} >
+                                       <Dropdown.Item
+                                         key={el.key}
+                                         style={{textAlign: 'center'}}
+                                         onClick={() => {changeLanguage(el.text)}} >
                                            {el.text}
                                        </Dropdown.Item>
                                    ))}
