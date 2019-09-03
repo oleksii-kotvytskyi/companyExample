@@ -7,7 +7,7 @@ import './Main.css';
 export  const Jobs = (props) => {
     const { list } = props.sectionData;
     return (
-        <div id='Jobs' className='containerJobs'>
+        <div id='jobs' className='containerJobs'>
             <Header as='h2' icon textAlign='center' >
                 <Icon name='briefcase' circular color='green'/>
                 <Header.Content>Jobs</Header.Content>

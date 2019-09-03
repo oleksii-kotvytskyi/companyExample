@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Header, Icon, Image, TransitionablePortal, Segment, Divider } from 'semantic-ui-react';
 import './Main.css';
-import { aboutUsInf } from '../../api/dataForComponents';
 
 
 export class AboutAs extends Component {
@@ -19,14 +18,10 @@ export class AboutAs extends Component {
     }
 
     render() {
-        const regExp = /^photo/i;
-        const renderArr = Object.keys(aboutUsInf).filter(el => regExp.test(el));
-        const {
-            content,
-            list,
-        } = this.props.sectionData;
+        const { content, list, } = this.props.sectionData;
+
          return (
-            <div className='containerAboutUs' ref={this.refAboutUs} id='About_Us'>
+            <div className='containerAboutUs' ref={this.refAboutUs} id='about_us'>
                 <Header as='h2' icon textAlign='center'>
                     <Icon name='users' circular color='green'/>
                     <Header.Content>About Us</Header.Content>

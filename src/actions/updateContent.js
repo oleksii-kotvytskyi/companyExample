@@ -1,9 +1,11 @@
+import Translate from '../translate';
 
 const SERVER_URL = 'http://192.168.0.105/chunks?key=';
 
 const updateContent = (language, setUIContent) => {
-
-  const key = 'sun_content_' + (language || 'en');
+  const lang = language || 'en';
+  const key = 'sun_content_' + lang;
+  Translate.lang(lang);
 
   if (localStorage.getItem(key))
     setUIContent(JSON.parse(localStorage.getItem(key)));

@@ -2,12 +2,10 @@ import React from 'react';
 import { Menu, Image, Dropdown, Sidebar, Icon, TransitionablePortal, Ref } from 'semantic-ui-react';
 import Logo from '../../img/Logo.jpg';
 import './Header.css';
-import { headerItems } from '../../api/dataForComponents';
 import LanguageSwitch from '../../containers/LanguageSwitch';
-const options = [
-    { key: 1, text: 'ua' },
-    { key: 2, text: 'en' },
-];
+// import Translate from '../../translate';
+import { headerItems } from '../../api/dataForComponents';
+
 
 export class MobileSidebar extends React.Component {
     render() {
@@ -16,7 +14,7 @@ export class MobileSidebar extends React.Component {
        return (
            <Ref innerRef={headerRef} >
                <Sidebar as={Menu} visible={isMobile} className='menu' inverted size="large" fixed='top'>
-                   <Image src={Logo}  className='imgLogo' as='a' href='#Header' />
+                   <Image src={Logo}  className='imgLogo' as='a' href='#header' />
                    <TransitionablePortal
                        closeOnTriggerClick
                        mountNode={headerRef.current || document.body}

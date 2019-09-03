@@ -8,13 +8,15 @@ import { Jobs } from "./components/Main/Jobs";
 import { Footer } from "./components/Footer/Footer";
 import { isBrowser, getWidth } from "./utils/Utils";
 import updateContent from './actions/updateContent';
+import Translate from './translate';
+
 
 export class App extends Component {
 
     constructor (props) {
         super(props);
-
     }
+
     componentDidMount() {
         updateContent(this.props.language, this.props.setUIContent);
     }
@@ -26,8 +28,7 @@ export class App extends Component {
             contentAbout,
             contentJobs,
         } = this.props;
-        console.log("APP", this.props);
-        //
+
         return (
             Object.keys(contentHeader).length > 0
                 ?
@@ -40,7 +41,7 @@ export class App extends Component {
                         <Footer />
                     </div>
                 </Responsive>
-                : <div>Loading...</div>
+                : <div>{ Translate.__('Loading') }...</div>
 
         );
     }
