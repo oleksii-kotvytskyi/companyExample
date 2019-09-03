@@ -4,7 +4,8 @@ import { jobsInf } from '../../api/dataForComponents';
 import { JobItem } from "./jobItem";
 import './Main.css';
 
-export  const Jobs = () => {
+export  const Jobs = (props) => {
+    const { list } = props.sectionData;
     return (
         <div id='Jobs' className='containerJobs'>
             <Header as='h2' icon textAlign='center' >
@@ -13,8 +14,8 @@ export  const Jobs = () => {
             </Header>
             <Divider className='isDivider'/>
             <Grid className='jobsCards'>
-                { jobsInf.map((card, idx) =>
-                    <JobItem roll={card.roll} content={card.content} key={idx}/>) }
+                { list.map((card, idx) =>
+                    <JobItem roll={card.title} content={card.content} key={idx}/>) }
             </Grid>
         </div>
     )}

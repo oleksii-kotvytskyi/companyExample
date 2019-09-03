@@ -1,7 +1,7 @@
 
 const SERVER_URL = 'http://192.168.0.105/chunks?key=';
 
-const request = (language, setUIContent) => {
+const updateContent = (language, setUIContent) => {
 
   const key = 'sun_content_' + (language || 'en');
 
@@ -19,4 +19,4 @@ const request = (language, setUIContent) => {
     });
 };
 
-export default request;
+export default updateContent;

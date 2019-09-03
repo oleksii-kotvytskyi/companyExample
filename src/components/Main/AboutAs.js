@@ -21,7 +21,10 @@ export class AboutAs extends Component {
     render() {
         const regExp = /^photo/i;
         const renderArr = Object.keys(aboutUsInf).filter(el => regExp.test(el));
-
+        const {
+            content,
+            list,
+        } = this.props.sectionData;
          return (
             <div className='containerAboutUs' ref={this.refAboutUs} id='About_Us'>
                 <Header as='h2' icon textAlign='center'>
@@ -31,11 +34,11 @@ export class AboutAs extends Component {
                 <Divider className='isDivider'/>
                 <div className='wrapperAboutUs'>
                     <p className='descriptionAboutUs'>
-                        { aboutUsInf.content }
+                        { content }
                     </p>
                     <div className='photosAboutUs'>
                     {
-                        renderArr.map((el, idx) => (
+                        list.map((el, idx) => (
                         <TransitionablePortal
                             key={idx}
                             closeOnTriggerClick
@@ -43,22 +46,22 @@ export class AboutAs extends Component {
                             mountNode={this.state.stateRefAboutUs}
                             trigger={
                                 <Image
-                                    src={aboutUsInf[el].src}
+                                    src='https://seeklogo.com/images/F/flat-man-icon-logo-A0FEC16B6D-seeklogo.com.png'
                                     circular
-                                    className={`wrapperAboutUs_photo ${el}`}
+                                    className={`wrapperAboutUs_photo photo${idx}`}
                                 />
                             }
                         >
                             <Segment className='employeeInf'>
                                 <Image
-                                    src={aboutUsInf[el].src}
+                                    src='https://seeklogo.com/images/F/flat-man-icon-logo-A0FEC16B6D-seeklogo.com.png'
                                     circular
                                     size='tiny'
                                     verticalAlign='top'
                                 />
-                                <Header style={{color: 'white'}}>{aboutUsInf[el].fullName}</Header>
-                                <p>{aboutUsInf[el].roll}</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto at beatae blanditiis dignissimos eos error, eveniet incidunt laboriosam minima nam, nihil obcaecati odio odit praesentium quibusdam similique ut vel.</p>
+                                <Header style={{color: 'white'}}>{el.title}</Header>
+                                <p>{el.post}</p>
+                                <p>{el.content}</p>
                             </Segment>
                         </TransitionablePortal>
                     ))}

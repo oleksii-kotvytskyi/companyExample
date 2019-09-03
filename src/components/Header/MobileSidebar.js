@@ -3,7 +3,7 @@ import { Menu, Image, Dropdown, Sidebar, Icon, TransitionablePortal, Ref } from 
 import Logo from '../../img/Logo.jpg';
 import './Header.css';
 import { headerItems } from '../../api/dataForComponents';
-import  { LanguageSwitch } from '../../containers/LanguageSwitch';
+import LanguageSwitch from '../../containers/LanguageSwitch';
 const options = [
     { key: 1, text: 'ua' },
     { key: 2, text: 'en' },
@@ -11,7 +11,7 @@ const options = [
 
 export class MobileSidebar extends React.Component {
     render() {
-        const { activeA, handleClick, isMobile, headerRef, changeLanguage } = this.props;
+        const { activeA, handleClick, isMobile, headerRef } = this.props;
 
        return (
            <Ref innerRef={headerRef} >
@@ -48,18 +48,7 @@ export class MobileSidebar extends React.Component {
                                    />
                                )
                            })}
-                           <Dropdown text='Language' simple item onClick={handleClick} >
-                               <Dropdown.Menu >
-                                   {options.map(el => (
-                                       <Dropdown.Item
-                                         key={el.key}
-                                         style={{textAlign: 'center'}}
-                                         onClick={() => changeLanguage(el.text)} >
-                                           {el.text}
-                                       </Dropdown.Item>
-                                   ))}
-                               </Dropdown.Menu>
-                           </Dropdown>
+                           <LanguageSwitch/>
                        </div>
                    </TransitionablePortal>
                </Sidebar>
