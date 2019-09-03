@@ -9,7 +9,7 @@ import { Footer } from "./components/Footer/Footer";
 import { isBrowser, getWidth } from "./utils/Utils";
 
 
-const SERVER_URL = 'http://localhost:3005/chunks?key=sun_content_';
+const SERVER_URL = 'http://localhost:3005/chunks?key=';
 
 export class App extends Component {
 
@@ -20,23 +20,20 @@ export class App extends Component {
 
     loadContent (lang) {
         const { language, setUIContent, } = this.props;
+        const key = 'sun_content_' + (lang || language);
 
-        fetch(SERVER_URL + (lang || language)).then(function(response) {
-            response.json().then( (response) => {
-                console.log('response', response);
-
-                if (response.ok) {
-                    setUIContent({
-                        header: response.result.header,
-                        intro: response.result.intro,
-                        about: response.result.about,
-                        wedo: response.result.wedo,
-                        jobs: response.result.jobs,
-                        footer: response.result.footer,
-                    });
-                }
+        if (localStorage.getItem(key))
+            setUIContent(JSON.parse(localStorage.getItem(key)));
+        else
+            fetch(SERVER_URL + key).then(function(response) {
+                response.json().then( (response) => {
+                    if (response.ok) {
+                        const uiContentData = {...response.result};
+                        localStorage.setItem(key, JSON.stringify(uiContentData));
+                        setUIContent(uiContentData);
+                    }
+                });
             });
-        });
     }
 
     render () {
