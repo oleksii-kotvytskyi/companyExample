@@ -4,6 +4,7 @@ import { whatWeDoInf } from '../../api/dataForComponents';
 import './Main.css';
 import { isMobile } from '../../utils/Utils';
 
+
 export class WhatWeDo extends Component {
 
   render() {
@@ -16,9 +17,10 @@ export class WhatWeDo extends Component {
           <Header.Content>What We Do</Header.Content>
         </Header>
         <Divider className='isDivider'/>
-        <Grid columns={columns} style={{
+        <Grid columns={columns} className='phasesWhatWeDo' style={{
           width: '80%',
           margin: '3rem auto 3rem auto',
+          paddingBottom: '3rem',
         }} centered>
           {whatWeDoInf.map((el, idx) => (
             <Grid.Column key={idx}>

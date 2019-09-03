@@ -93,11 +93,12 @@
         padding-right: 20px;
     }
     .menuItems > .item::before {
-        width: 0px !important;
+        width: 0 !important;
     }
-    .imgLogo {
+
+    .ui.image img {
         width: 80px;
-        height: 80px;
+        height: 80px !important;
         align-self: center;
         margin-left: 2rem;
     }

@@ -3,21 +3,20 @@ import { Menu, Image, Dropdown, Sidebar, Icon, TransitionablePortal, Ref } from 
 import Logo from '../../img/Logo.jpg';
 import './Header.css';
 import { headerItems } from '../../api/dataForComponents';
-
+import  { LanguageSwitch } from '../../containers/LanguageSwitch';
 const options = [
-    { key: 1, text: 'UA' },
-    { key: 2, text: 'Eng' },
-    { key: 3, text: 'Ru' },
+    { key: 1, text: 'ua' },
+    { key: 2, text: 'en' },
 ];
 
 export class MobileSidebar extends React.Component {
     render() {
-        const { activeA, handleClick, isMobile, headerRef } = this.props;
+        const { activeA, handleClick, isMobile, headerRef, changeLanguage } = this.props;
 
        return (
            <Ref innerRef={headerRef} >
                <Sidebar as={Menu} visible={isMobile} className='menu' inverted size="large" fixed='top'>
-                   <Image src={Logo}  className='imgLogo' />
+                   <Image src={Logo}  className='imgLogo' as='a' href='#Header' />
                    <TransitionablePortal
                        closeOnTriggerClick
                        mountNode={headerRef.current || document.body}
@@ -52,7 +51,10 @@ export class MobileSidebar extends React.Component {
                            <Dropdown text='Language' simple item onClick={handleClick} >
                                <Dropdown.Menu >
                                    {options.map(el => (
-                                       <Dropdown.Item key={el.key} style={{textAlign: 'center'}} >
+                                       <Dropdown.Item
+                                         key={el.key}
+                                         style={{textAlign: 'center'}}
+                                         onClick={() => changeLanguage(el.text)} >
                                            {el.text}
                                        </Dropdown.Item>
                                    ))}

@@ -3,16 +3,22 @@ import { Menu, Image, Dropdown, Sidebar } from 'semantic-ui-react';
 import Logo from '../../img/Logo.jpg';
 import './Header.css';
 import { headerItems } from '../../api/dataForComponents';
-
+import LanguageSwitch from '../../containers/LanguageSwitch';
 const options = [
-    { key: 1, text: 'UA' },
-    { key: 2, text: 'Eng' },
-    { key: 3, text: 'Ru' },
+    { key: 1, text: 'ua' },
+    { key: 2, text: 'en' },
 ];
 
 export class DesktopSidebar extends React.Component {
     render() {
-        const { activeA, handleClick, isMobile, } = this.props;
+
+        const {
+          activeA,
+          handleClick,
+          isMobile,
+          changeLanguage,
+        } = this.props;
+
         return(
             <Sidebar as={Menu}  visible={!isMobile} className='menu' inverted size="large" fixed='top'>
                 <Image src={Logo}  className='imgLogo' as='a' href='#Header'/>
@@ -32,15 +38,7 @@ export class DesktopSidebar extends React.Component {
                     })}
                 </div>
                 <div className='dropdownLang'>
-                    <Dropdown text='Language' simple item  onClick={handleClick}>
-                        <Dropdown.Menu>
-                            {options.map(el => (
-                                <Dropdown.Item key={el.key} style={{textAlign: 'center'}}>
-                                    {el.text}
-                                </Dropdown.Item>
-                            ))}
-                        </Dropdown.Menu>
-                    </Dropdown>
+                    <LanguageSwitch />
                 </div>
             </Sidebar>
         )
