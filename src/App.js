@@ -11,10 +11,8 @@ import { isBrowser, getWidth } from "./utils/Utils";
 
 export class App extends Component {
 
-
     render () {
         const {width, changeUIWidth} = this.props;
-
         return (
             <Responsive getWidth={() => {changeUIWidth(isBrowser() ? getWidth() : 0)}}>
                 <div className="App">

@@ -5,6 +5,7 @@
     padding-bottom: 80px;
     margin-bottom: 160px;
 }
+
 .containerWhatWeDo {
     padding-top: 120px;
     background-color: rgba(9,13,0 , 0.15); /*251, 189, 8*/
@@ -57,7 +58,7 @@
 .employeeInf {
     position: absolute !important;
     left: 35%;
-    top: -5%;
+    top: 20%;
     width: 30%;
     text-align: center;
     background-color: rgba(0,0,0,0.98) !important;

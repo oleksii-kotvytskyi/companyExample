@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Icon, Container, Image, TransitionablePortal, Segment, Divider } from 'semantic-ui-react';
+import { Header, Icon, Image, TransitionablePortal, Segment, Divider } from 'semantic-ui-react';
 import './Main.css';
 import { aboutUsInf } from '../../api/dataForComponents';
 

@@ -39,7 +39,6 @@ const aboutUsInf = {
         fullName: 'Aleksey Kotvitsky',
         roll: 'React Developer'
     },
-
     photo1: {
         src: 'https://icon-library.net/images/woman-icon/woman-icon-8.jpg',
         fullName: 'Oksana Palamarchuk ',
