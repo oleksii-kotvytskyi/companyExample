@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     setUILanguage: (arg) => dispatch(changeUILanguage(arg)),
+    setUIContent: (arg) => dispatch(changeUIContent(arg))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LanguageSwitch);

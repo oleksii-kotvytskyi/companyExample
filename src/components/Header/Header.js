@@ -26,7 +26,6 @@ export class Header extends React.Component {
     render() {
         const { activeA, curWidth, } = this.state;
         const { sectionData } = this.props;
-
         const isMobile = curWidth <= 550;
 
         return (

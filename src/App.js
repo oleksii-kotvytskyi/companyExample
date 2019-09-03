@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Responsive } from 'semantic-ui-react';
 import './App.css';
 import { Header } from './components/Header/Header';
@@ -7,40 +7,41 @@ import { WhatWeDo } from "./components/Main/WhatWeDo";
 import { Jobs } from "./components/Main/Jobs";
 import { Footer } from "./components/Footer/Footer";
 import { isBrowser, getWidth } from "./utils/Utils";
-import request from './actions/request';
-
-
-const SERVER_URL = 'http://192.168.0.105/chunks?key=';
+import updateContent from './actions/updateContent';
 
 export class App extends Component {
 
     constructor (props) {
         super(props);
-        request(props.language, props.setUIContent);
+
+    }
+    componentDidMount() {
+        updateContent(this.props.language, this.props.setUIContent);
     }
 
     render () {
-
         const {
             setUIWidth,
             contentHeader,
-            contentIntro,
             contentAbout,
-            contentWeDo,
             contentJobs,
-            contentFooter,
         } = this.props;
-
+        console.log("APP", this.props);
+        //
         return (
-            <Responsive getWidth={() => {setUIWidth(isBrowser() ? getWidth() : 0)}}>
-                <div className="App">
-                    <Header sectionData={contentHeader} />
-                    <AboutAs />
-                    <WhatWeDo />
-                    <Jobs />
-                    <Footer />
-                </div>
-            </Responsive>
+            Object.keys(contentHeader).length > 0
+                ?
+                <Responsive getWidth={() => {setUIWidth(isBrowser() ? getWidth() : 0)}}>
+                    <div className="App">
+                        <Header sectionData={contentHeader} />
+                        <AboutAs sectionData={contentAbout}/>
+                        <WhatWeDo />
+                        <Jobs sectionData={contentJobs} />
+                        <Footer />
+                    </div>
+                </Responsive>
+                : <div>Loading...</div>
+
         );
     }
 }

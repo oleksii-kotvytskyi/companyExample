@@ -43,12 +43,12 @@
 }
 .photo0 {
     left: 10%;
-    top: -12%;
+    top: -40px;
 }
 
 .photo1 {
     right: 10%;
-    top: 20%;
+    top: 40px;
 }
 
 .photo2 {
@@ -58,7 +58,7 @@
 .employeeInf {
     position: absolute !important;
     left: 35%;
-    top: 20%;
+    top: 120px;
     width: 30%;
     text-align: center;
     background-color: rgba(0,0,0,0.98) !important;
