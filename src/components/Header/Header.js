@@ -13,9 +13,7 @@ export class Header extends React.Component {
         curWidth: window.innerWidth || 0,
     };
 
-    handleAClick = (e,  { name } ) => {
-        this.setState({ activeA: name });
-    };
+
 
     handleOnUpdate = (e, { width }) => this.setState({ curWidth: width });
 
@@ -24,20 +22,16 @@ export class Header extends React.Component {
     };
 
     render() {
-        const { activeA, curWidth, } = this.state;
+        const { curWidth, } = this.state;
         const { sectionData } = this.props;
         const isMobile = curWidth <= 550;
 
         return (
             <Responsive onUpdate={this.handleOnUpdate} className='containerHeader' id='header'>
                 <DesktopSidebar
-                  activeA={activeA}
-                  handleClick={this.handleAClick}
                   isMobile={isMobile}
                 />
                 <MobileSidebar
-                    activeA={activeA}
-                    handleClick={this.handleAClick}
                     isMobile={isMobile}
                     headerRef={this.headerRef}
                 />

@@ -1,7 +1,5 @@
-import {Dropdown} from "semantic-ui-react";
 import { connect } from 'react-redux';
-import React from "react";
-import {changeUIContent, changeUILanguage, changeUIWidth} from '../../actions/index';
+import { changeUIContent, changeUILanguage } from '../../actions/index';
 import  LanguageSwitch  from '../../components/Header/LanguageSwitch';
 
 const mapStateToProps = state => ({

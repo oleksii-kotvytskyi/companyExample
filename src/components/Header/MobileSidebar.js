@@ -1,15 +1,27 @@
 import React from 'react';
-import { Menu, Image, Dropdown, Sidebar, Icon, TransitionablePortal, Ref } from 'semantic-ui-react';
+import { Menu, Image, Sidebar, Icon, TransitionablePortal, Ref } from 'semantic-ui-react';
 import Logo from '../../img/Logo.jpg';
 import './Header.css';
 import LanguageSwitch from '../../containers/LanguageSwitch';
-// import Translate from '../../translate';
-import { headerItems } from '../../api/dataForComponents';
+import Translate from "../../translate";
 
 
 export class MobileSidebar extends React.Component {
+    state = {
+        active: null,
+    };
+    handleClick = (e, obj ) => {
+        this.setState({ active: obj ? obj.href.slice(1) : null });
+    };
+
     render() {
-        const { activeA, handleClick, isMobile, headerRef } = this.props;
+        const { isMobile, headerRef } = this.props;
+        const { active } = this.state;
+        const menus = [
+            {id: 'about_us', name: Translate.__('About Us')},
+            {id: 'what_we_do', name: Translate.__('What We Do')},
+            {id: 'jobs', name: Translate.__('Jobs')},
+        ];
 
        return (
            <Ref innerRef={headerRef} >
@@ -18,7 +30,6 @@ export class MobileSidebar extends React.Component {
                    <TransitionablePortal
                        closeOnTriggerClick
                        mountNode={headerRef.current || document.body}
-                       // open={isMobile}
                        openOnTriggerClick
                        transition={{
                            animation: 'slide down',
@@ -33,15 +44,15 @@ export class MobileSidebar extends React.Component {
                        }
                    >
                        <div className={`menuItems`}>
-                           { headerItems.map(el => {
+                           { menus.map(el => {
                                return (
                                    <Menu.Item
                                        as='a'
-                                       href={`#${el}`}
-                                       key={el}
-                                       name={/_/g.test(el) ? el.replace('_', ' ') : el}
-                                       active={activeA === el || false}
-                                       onClick={handleClick}
+                                       href={`#${el.id}`}
+                                       key={el.id}
+                                       name={el.name}
+                                       active={active === el.id}
+                                       onClick={this.handleClick}
                                        size='small'
                                    />
                                )

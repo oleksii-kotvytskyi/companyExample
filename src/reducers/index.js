@@ -4,7 +4,7 @@ import { getWidth } from "../utils/Utils";
 const localState = {
     ui: {
         language: 'en',
-        width: getWidth(),
+        width: getWidth()
     },
     content: {
         header: {},
