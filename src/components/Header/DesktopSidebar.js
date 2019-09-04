@@ -12,20 +12,21 @@ export class DesktopSidebar extends React.Component {
     active: null,
   };
 
-  itemClick (eve, item) {
-    this.setState({
-      active: item.href.slice(1)
-    })
-  };
-
   render() {
     const { isMobile, } = this.props;
+
+    const itemClick = (event, item) =>{
+      this.setState({
+        active: item.href.slice(1)
+      })
+    };
 
     const menus = [
       {id: 'about_us', name: Translate.__('About Us')},
       {id: 'what_we_do', name: Translate.__('What We Do')},
       {id: 'jobs', name: Translate.__('Jobs')},
     ];
+
     return (
       <Sidebar as={Menu} visible={!isMobile} className='menu' inverted size="large" fixed='top'>
         <Image src={Logo} className='imgLogo' as='a' href='#header'/>
@@ -38,7 +39,7 @@ export class DesktopSidebar extends React.Component {
                 key={it.id}
                 name={it.name}
                 active={this.state.active === it.id || false}
-                onClick={this.itemClick}
+                onClick={itemClick}
                 size='small'
               />
             );
