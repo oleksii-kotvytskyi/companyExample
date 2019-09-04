@@ -8,15 +8,24 @@ import './Header.css';
 
 export class DesktopSidebar extends React.Component {
 
+  state = {
+    active: null,
+  };
+
+  itemClick (eve, item) {
+    this.setState({
+      active: item.href.slice(1)
+    })
+  };
+
   render() {
-    const { activeA, handleClick, isMobile, } = this.props;
+    const { isMobile, } = this.props;
 
     const menus = [
       {id: 'about_us', name: Translate.__('About Us')},
       {id: 'what_we_do', name: Translate.__('What We Do')},
       {id: 'jobs', name: Translate.__('Jobs')},
     ];
-
     return (
       <Sidebar as={Menu} visible={!isMobile} className='menu' inverted size="large" fixed='top'>
         <Image src={Logo} className='imgLogo' as='a' href='#header'/>
@@ -28,8 +37,8 @@ export class DesktopSidebar extends React.Component {
                 href={`#${it.id}`}
                 key={it.id}
                 name={it.name}
-                active={activeA === it.id || false}
-                onClick={handleClick}
+                active={this.state.active === it.id || false}
+                onClick={this.itemClick}
                 size='small'
               />
             );

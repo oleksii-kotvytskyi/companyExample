@@ -16,7 +16,7 @@ export default {
   'Backend_text': 'Back simple good at containing small bits of information',
   'Frontend': 'Frontend',
   'Frontend_text': 'Frontend I am good at containing small bits of informat io',
-  'Plugins and Extensions': 'Plugins and Extensions',
+  'Plugins': 'Plugins and Extensions',
   'Plugins_text': 'Plugins and Extensions - Prototype containing small bits',
 
   'All Rights Reserved': 'SunLight Development © 2019 All Rights Reserved'
