@@ -56,7 +56,7 @@ export class JobItem extends Component {
                 <Ref innerRef={this.cardRef}>
                     <Grid.Column
                         className='jobsCard'
-                        largeScreen={6}
+                        largeScreen={8}
                         computer={8}
                         tablet={10}
                         mobile={14}

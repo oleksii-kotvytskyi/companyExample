@@ -17,7 +17,6 @@ const localState = {
 };
 
 const reducer = (state = localState, action) => {
-
     switch (action.type) {
 
         case CHANGE_UI_WIDTH:

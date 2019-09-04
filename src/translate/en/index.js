@@ -19,5 +19,5 @@ export default {
   'Plugins': 'Plugins and Extensions',
   'Plugins_text': 'Plugins and Extensions - Prototype containing small bits',
 
-  'All Rights Reserved': 'SunLight Development © 2019 All Rights Reserved'
+  'Copyright': 'SunLight Development © 2019 All Rights Reserved'
 };

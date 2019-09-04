@@ -19,5 +19,5 @@ export default {
   'Plugins': 'Plugins and Extensions',
   'Plugins_text': 'Плагіни та розширення - прототип, що містить невеликі біти',
 
-  'All Rights Reserved': 'SunLight Development © 2019 Всі права захищені'
+  'Copyright': 'SunLight Development © 2019 Всі права захищені'
 };
