@@ -17,7 +17,7 @@ const updateContent = (language, setUIContent) => {
           localStorage.setItem(key, JSON.stringify(uiContentData));
           setUIContent(uiContentData);
         }
-      });
+      }).catch(err =>  new Error(err));
     });
 };
 

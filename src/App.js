@@ -8,14 +8,9 @@ import { Jobs } from "./components/Main/Jobs";
 import { Footer } from "./components/Footer/Footer";
 import { isBrowser, getWidth } from "./utils/Utils";
 import updateContent from './actions/updateContent';
-import Translate from './translate';
 
 
 export class App extends Component {
-
-    constructor (props) {
-        super(props);
-    }
 
     componentDidMount() {
         updateContent(this.props.language, this.props.setUIContent);
@@ -30,7 +25,7 @@ export class App extends Component {
         } = this.props;
 
         return (
-            Object.keys(contentHeader).length > 0
+            contentHeader && Object.keys(contentHeader).length > 0
                 ?
                 <Responsive getWidth={() => {setUIWidth(isBrowser() ? getWidth() : 0)}}>
                     <div className="App">
@@ -41,8 +36,7 @@ export class App extends Component {
                         <Footer sectionData={contentAbout} />
                     </div>
                 </Responsive>
-                : <div>{ Translate.__('Loading') }...</div>
-
+                : <div> Loading...</div>
         );
     }
 }

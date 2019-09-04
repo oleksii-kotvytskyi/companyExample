@@ -8,18 +8,16 @@ import './Header.css';
 
 export class DesktopSidebar extends React.Component {
 
-  state = {
-    active: null,
-  };
-
-  itemClick = (event, item) => {
-    this.setState({
-      active: item.href.slice(1)
-    })
-  };
+    state = {
+        active: null,
+    };
+    handleClick = (e, obj ) => {
+        this.setState({ active: obj ? obj.href.slice(1) : null });
+    };
 
   render() {
-    const { isMobile, } = this.props;
+    const { isMobile } = this.props;
+    const { active } = this.state;
 
     const menus = [
       {id: 'about_us', name: Translate.__('About Us')},
@@ -29,7 +27,7 @@ export class DesktopSidebar extends React.Component {
 
     return (
       <Sidebar as={Menu} visible={!isMobile} className='menu' inverted size="large" fixed='top'>
-        <Image src={Logo} className='imgLogo' as='a' href='#header'/>
+        <Image src={Logo} className='imgLogo' as='a' href='#header' onClick={this.handleClick}/>
         <div className='menuItems'>
           {menus.map(it => {
             return (
@@ -38,15 +36,15 @@ export class DesktopSidebar extends React.Component {
                 href={`#${it.id}`}
                 key={it.id}
                 name={it.name}
-                active={this.state.active === it.id || false}
-                onClick={this.itemClick}
+                active={active === it.id}
+                onClick={this.handleClick}
                 size='small'
               />
             );
           })}
         </div>
-        <div className='dropdownLang'>
-          <LanguageSwitch/>
+        <div className='dropdownLang' >
+          <LanguageSwitch handleClick={this.handleClick}/>
         </div>
       </Sidebar>
     );
