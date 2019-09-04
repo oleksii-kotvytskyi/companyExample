@@ -35,10 +35,10 @@ export class App extends Component {
                 <Responsive getWidth={() => {setUIWidth(isBrowser() ? getWidth() : 0)}}>
                     <div className="App">
                         <Header sectionData={contentHeader} />
-                        <AboutAs sectionData={contentAbout}/>
+                        <AboutAs sectionData={contentAbout} />
                         <WhatWeDo />
                         <Jobs sectionData={contentJobs} />
-                        <Footer />
+                        <Footer sectionData={contentAbout} />
                     </div>
                 </Responsive>
                 : <div>{ Translate.__('Loading') }...</div>

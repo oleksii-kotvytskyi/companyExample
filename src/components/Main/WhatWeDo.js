@@ -22,7 +22,7 @@ export class WhatWeDo extends Component {
       <div className='containerWhatWeDo' id='what_we_do' >
         <Header as='h2' icon textAlign='center'>
           <Icon name='angrycreative' circular color='olive'/>
-          <Header.Content>What We Do</Header.Content>
+          <Header.Content>{ Translate.__('What We Do') }</Header.Content>
         </Header>
         <Divider className='isDivider'/>
         <Grid columns={columns} className='phasesWhatWeDo' style={{

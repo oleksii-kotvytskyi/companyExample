@@ -12,14 +12,14 @@ export class DesktopSidebar extends React.Component {
     active: null,
   };
 
+  itemClick = (event, item) => {
+    this.setState({
+      active: item.href.slice(1)
+    })
+  };
+
   render() {
     const { isMobile, } = this.props;
-
-    const itemClick = (event, item) =>{
-      this.setState({
-        active: item.href.slice(1)
-      })
-    };
 
     const menus = [
       {id: 'about_us', name: Translate.__('About Us')},
@@ -39,7 +39,7 @@ export class DesktopSidebar extends React.Component {
                 key={it.id}
                 name={it.name}
                 active={this.state.active === it.id || false}
-                onClick={itemClick}
+                onClick={this.itemClick}
                 size='small'
               />
             );

@@ -3,6 +3,7 @@ import { Header, Icon, Grid, Divider } from 'semantic-ui-react';
 import { jobsInf } from '../../api/dataForComponents';
 import { JobItem } from "./jobItem";
 import './Main.css';
+import Translate from '../../translate';
 
 export  const Jobs = (props) => {
     const { list } = props.sectionData;
@@ -10,7 +11,7 @@ export  const Jobs = (props) => {
         <div id='jobs' className='containerJobs'>
             <Header as='h2' icon textAlign='center' >
                 <Icon name='briefcase' circular color='green'/>
-                <Header.Content>Jobs</Header.Content>
+                <Header.Content>{ Translate.__('Jobs') }</Header.Content>
             </Header>
             <Divider className='isDivider'/>
             <Grid className='jobsCards'>
