@@ -20,7 +20,7 @@ export class Footer extends Component {
                                 <a href={'tel:' + phone }>{ phone }</a>
                             </Grid.Column>
                             <Grid.Column>
-                                <a href="mailto:web@msunligth.com?subject=Тема%20письма&body=Body:%0AНомер%20для%20связи:">{ email }</a>
+                                <a href={`mailto:web@sunlight.com`}>{ email }</a>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid.Column>

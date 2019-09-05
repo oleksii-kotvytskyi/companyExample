@@ -1,6 +1,6 @@
 import React, { Component, createRef } from 'react';
-import { Header, Grid, Divider, Button, Ref, Transition, Form } from 'semantic-ui-react';
-
+import { Header, Grid, Divider, Button, Ref, Transition, Form, Icon} from 'semantic-ui-react';
+import { getWidth } from '../../utils/Utils';
 
 export class JobItem extends Component {
     state = {
@@ -8,7 +8,7 @@ export class JobItem extends Component {
         visible: false,
         reply: false,
         file: null,
-        textArea: ''
+        textArea: '',
     };
     cardRef = createRef();
 
@@ -18,7 +18,7 @@ export class JobItem extends Component {
             visible: !prevState.visible,
             reply: false,
             textArea: '',
-            file: null
+            file: null,
         }))
     };
     replyMail = () => this.setState(prevState => ({reply: !prevState.reply}))
@@ -28,7 +28,9 @@ export class JobItem extends Component {
         inputFile.type = 'file';
         inputFile.dispatchEvent(new MouseEvent('click'));
         inputFile.addEventListener('change', () => {
-            this.setState({file: inputFile.files[0]})
+            this.setState({
+                file: inputFile.files[0]
+            })
         });
     };
 
@@ -51,9 +53,15 @@ export class JobItem extends Component {
         });
     };
 
+    deleteFile = () => {
+        this.setState({
+            file: null,
+        })
+    }
+
     render() {
         const { roll, content } = this.props;
-        const { visible, reply } = this.state;
+        const { visible, reply, file } = this.state;
 
         const contentPart = content.split('===');
         let preview = content;
@@ -91,7 +99,9 @@ export class JobItem extends Component {
                                 <p className='jobItemDescription'>
                                     { description }
                                 </p>
-                                <Button onClick={this.replyMail} style={{marginLeft: '1rem'}}>Reply</Button>
+                                <Button onClick={this.replyMail} style={{marginLeft: '1rem'}}>
+                                    Reply
+                                </Button>
                                 <Transition
                                     visible={reply}
                                     animation='scale'
@@ -106,11 +116,26 @@ export class JobItem extends Component {
                                                 })}
                                                 value={this.state.textArea}
                                             />
-                                            <Button onClick={this.callUploader} floated='left'>Add File</Button>
+                                            <Button onClick={this.callUploader} floated='left'>
+                                                Add File
+                                            </Button>
                                             <span style={{lineHeight: 2.5}}>
-                                                { this.state.file ? this.state.file.name : '' }
+                                                { file ? file.name : '' }
                                             </span>
-                                            <Button onClick={this.sendData} floated='right'>SEND</Button>
+                                            {
+                                                file
+                                                    ?
+                                                    <Icon
+                                                        className='iconDeleteFile'
+                                                        name='delete'
+                                                        color='red'
+                                                        onClick={this.deleteFile}
+                                                    />
+                                                    : null
+                                            }
+                                            <Button onClick={this.sendData} floated={'right'}>
+                                                SEND
+                                            </Button>
                                         </Form>
                                     </div>
                                 </Transition>

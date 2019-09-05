@@ -85,6 +85,12 @@
     clear: both;
     width: 90%;
 }
+.iconDeleteFile {
+    margin-left: 1rem !important;
+}
+.iconDeleteFile:hover {
+    cursor: pointer;
+}
 @media (min-width: 681px) and (max-width: 1350px) {
     .photosAboutUs {
         display: flex;
