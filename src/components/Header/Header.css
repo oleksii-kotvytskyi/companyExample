@@ -1,15 +1,18 @@
+.containerHeader {
+    background: rgba(9,13,0 , 0.15);
+    min-height: 80vh;
+}
 .headerMainContent {
     font: 400 1.3rem "Neuton";
-    background: rgba(9,13,0 , 0.15); /*251, 189, 8*/
     text-align: center;
-    height: 80vh;
     padding-top: 80px;
-
 }
 .animationContainer {
     position: relative;
-    height: 50vh;
-    padding-top: 320px;
+    height: 40vh;
+}
+.companyDescription {
+    padding-top: 10px;
     padding-bottom: 80px;
 }
 
@@ -126,5 +129,15 @@
     }
     .headerMainContent {
         height: 100vh;
+    }
+}
+
+@media (orientation: landscape) {
+    .headerMainContent {
+        padding-top: 0;
+    }
+    .companyDescription {
+        padding-top: 50vh;
+        padding-bottom: 80px;
     }
 }
