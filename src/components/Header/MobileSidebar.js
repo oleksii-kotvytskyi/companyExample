@@ -9,9 +9,10 @@ import Translate from "../../translate";
 export class MobileSidebar extends React.Component {
     state = {
         active: null,
+        open: false
     };
     handleClick = (e, obj ) => this.setState({ active: obj ? obj.href.slice(1) : null });
-
+    handleOpen = () => this.setState((prevState) => ({open: !prevState.open}))
     render() {
         const { isMobile, headerRef } = this.props;
         const { active } = this.state;
@@ -28,7 +29,8 @@ export class MobileSidebar extends React.Component {
                    <TransitionablePortal
                        closeOnTriggerClick
                        mountNode={headerRef.current || document.body}
-                       openOnTriggerClick
+                       // openOnTriggerClick
+                       open={isMobile && this.state.open}
                        transition={{
                            animation: 'slide down',
                            duration: 500
@@ -38,6 +40,7 @@ export class MobileSidebar extends React.Component {
                                name='sidebar'
                                inverted
                                className='mobileIcon'
+                               onClick={this.handleOpen}
                            />
                        }
                    >

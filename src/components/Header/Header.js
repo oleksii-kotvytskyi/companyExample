@@ -21,8 +21,8 @@ export class Header extends React.Component {
 
         return (
             <Responsive onUpdate={this.handleOnUpdate} className='containerHeader' id='header'>
-                <DesktopSidebar isMobile={isMobile}/>
-                <MobileSidebar isMobile={isMobile} headerRef={this.headerRef}/>
+                <DesktopSidebar isMobile={isMobile }/>
+                <MobileSidebar isMobile={isMobile } headerRef={this.headerRef}/>
                 <HeaderContent>
                     { sectionData.content }
                 </HeaderContent>

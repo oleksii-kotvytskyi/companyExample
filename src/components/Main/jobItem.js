@@ -1,6 +1,5 @@
 import React, { Component, createRef } from 'react';
 import { Header, Grid, Divider, Button, Ref, Transition, Form, Icon} from 'semantic-ui-react';
-import { getWidth } from '../../utils/Utils';
 
 export class JobItem extends Component {
     state = {
