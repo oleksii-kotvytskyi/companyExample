@@ -9,11 +9,11 @@ export class JobItem extends Component {
         reply: false,
         file: null,
         textArea: ''
-    }
+    };
+
     cardRef = createRef();
 
     handleClick = () => {
-
         this.setState((prevState) => ({
             refCard: this.cardRef.current,
             visible: !prevState.visible,
@@ -21,10 +21,12 @@ export class JobItem extends Component {
             textArea: '',
             file: null
         }))
-    }
+    };
+
     replyMail = () => {
         this.setState(prevState => ({reply: !prevState.reply}))
-    }
+    };
+
     callUploader = () => {
         let inputFile = document.createElement('input');
         inputFile.type = 'file';
@@ -33,6 +35,7 @@ export class JobItem extends Component {
             this.setState({file: inputFile.files[0]})
         });
     };
+
     sendData = () => {
         let data = new FormData();
         data.append('file', this.state.file);
@@ -42,15 +45,24 @@ export class JobItem extends Component {
         fetch('/data', {
             method: 'POST',
             body: data
-        })
+        });
+
         this.setState({file: null, textArea: '', visible: false, reply: false});
-    }
-
-
+    };
 
     render() {
         const { roll, content } = this.props;
         const { visible, reply } = this.state;
+
+        const contentPart = content.split('===');
+        let preview = content;
+        let description = '';
+
+        if (contentPart.length === 2) {
+            preview = contentPart[0];
+            description = contentPart[1];
+        }
+
         return(
             <Grid.Row centered  >
                 <Ref innerRef={this.cardRef}>
@@ -62,10 +74,10 @@ export class JobItem extends Component {
                         mobile={14}
                     >
                         <Header color='green'>
-                            {roll}
+                            { roll }
                         </Header>
                         <p>
-                            {content}
+                            { preview }
                         </p>
                         <Divider />
                         <Button icon='angle down' floated='right' onClick={this.handleClick} inverted color='green' active={visible}/>
@@ -76,9 +88,7 @@ export class JobItem extends Component {
                         >
                             <div>
                                 <p style={{padding: '1rem', clear:'both', width: '90%'}}>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos officia quisquam sit?
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab inventore iure magni praesentium
-                                    quasi quisquam ullam voluptatem! Dicta, nam, repellat! Beatae delectus ex facilis neque quidem quisquam sint, sunt? Officiis.
+                                    { description }
                                 </p>
                                 <Button onClick={this.replyMail} style={{marginLeft: '1rem'}}>Reply</Button>
                                 <Transition
