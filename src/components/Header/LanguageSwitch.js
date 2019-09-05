@@ -9,7 +9,6 @@ const options = [
 
 
 export default class LanguageSwitch extends React.Component {
-
     changeLang = (lang) => {
         const { setUILanguage, setUIContent } = this.props;
         setUILanguage(lang);
@@ -18,14 +17,17 @@ export default class LanguageSwitch extends React.Component {
 
     render() {
         return (
-            <Dropdown text={Translate.__('Language')}  item style={{width: '120px', textAlign: 'right'}} >
+            <Dropdown text={Translate.__('Language')}  item style={{width: '120px'}} >
                 <Dropdown.Menu>
-                    {options.map(el => (
+                    { options.map(el => (
                         <Dropdown.Item
                             key={el.key}
                             style={{textAlign: 'center'}}
                             value={el.text}
-                            onClick={() => this.changeLang(el.text.toLowerCase())} >
+                            onClick={
+                                () => this.changeLang(el.text.toLowerCase())
+                            }
+                        >
                             {el.text}
                         </Dropdown.Item>
                     ))}
@@ -33,5 +35,4 @@ export default class LanguageSwitch extends React.Component {
             </Dropdown>
         )
     }
-
 }

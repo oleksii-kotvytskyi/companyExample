@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Responsive } from 'semantic-ui-react';
+import { Responsive, Dimmer, Loader } from 'semantic-ui-react';
 import './App.css';
 import { Header } from './components/Header/Header';
 import { AboutAs } from "./components/Main/AboutAs";
@@ -11,10 +11,7 @@ import updateContent from './actions/updateContent';
 
 
 export class App extends Component {
-
-    componentDidMount() {
-        updateContent(this.props.language, this.props.setUIContent);
-    }
+    componentDidMount = () => updateContent(this.props.language, this.props.setUIContent);
 
     render () {
         const {
@@ -36,7 +33,10 @@ export class App extends Component {
                         <Footer sectionData={contentAbout} />
                     </div>
                 </Responsive>
-                : <div> Loading...</div>
+                :
+                <Dimmer active>
+                    <Loader size='large'>Loading...</Loader>
+                </Dimmer>
         );
     }
 }

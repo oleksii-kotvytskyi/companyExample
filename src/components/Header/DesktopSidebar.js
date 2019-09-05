@@ -7,13 +7,10 @@ import './Header.css';
 
 
 export class DesktopSidebar extends React.Component {
-
     state = {
         active: null,
     };
-    handleClick = (e, obj ) => {
-        this.setState({ active: obj ? obj.href.slice(1) : null });
-    };
+    handleClick = (e, obj ) => this.setState({ active: obj ? obj.href.slice(1) : null });
 
   render() {
     const { isMobile } = this.props;
@@ -29,7 +26,7 @@ export class DesktopSidebar extends React.Component {
       <Sidebar as={Menu} visible={!isMobile} className='menu' inverted size="large" fixed='top'>
         <Image src={Logo} className='imgLogo' as='a' href='#header' onClick={this.handleClick}/>
         <div className='menuItems'>
-          {menus.map(it => {
+          { menus.map(it => {
             return (
               <Menu.Item
                 as='a'
@@ -44,7 +41,7 @@ export class DesktopSidebar extends React.Component {
           })}
         </div>
         <div className='dropdownLang' >
-          <LanguageSwitch handleClick={this.handleClick}/>
+          <LanguageSwitch />
         </div>
       </Sidebar>
     );

@@ -18,6 +18,7 @@ class Translate {
         return Translate.en[phrase] === undefined ? phrase : Translate.en[phrase];
       case 'ua':
         return Translate.ua[phrase] === undefined ? phrase : Translate.ua[phrase];
+      default: return;
     }
   };
 }

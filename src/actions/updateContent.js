@@ -14,7 +14,7 @@ const updateContent = (language, setUIContent) => {
       response.json().then( (response) => {
         if (response.ok) {
           const uiContentData = {...response.result};
-          // localStorage.setItem(key, JSON.stringify(uiContentData));
+          localStorage.setItem(key, JSON.stringify(uiContentData));
           setUIContent(uiContentData);
         }
       }).catch(err =>  new Error(err));

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Header, Icon, Grid, Divider } from 'semantic-ui-react';
-import { jobsInf } from '../../api/dataForComponents';
 import { JobItem } from "./jobItem";
 import './Main.css';
 import Translate from '../../translate';
@@ -16,7 +15,12 @@ export  const Jobs = (props) => {
             <Divider className='isDivider'/>
             <Grid className='jobsCards'>
                 { list.map((card, idx) =>
-                    <JobItem roll={card.title} content={card.content} key={idx}/>) }
+                    <JobItem
+                        roll={card.title}
+                        content={card.content}
+                        key={idx}
+                    /> )
+                }
             </Grid>
         </div>
     )}

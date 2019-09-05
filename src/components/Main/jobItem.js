@@ -10,7 +10,6 @@ export class JobItem extends Component {
         file: null,
         textArea: ''
     };
-
     cardRef = createRef();
 
     handleClick = () => {
@@ -22,10 +21,7 @@ export class JobItem extends Component {
             file: null
         }))
     };
-
-    replyMail = () => {
-        this.setState(prevState => ({reply: !prevState.reply}))
-    };
+    replyMail = () => this.setState(prevState => ({reply: !prevState.reply}))
 
     callUploader = () => {
         let inputFile = document.createElement('input');
@@ -47,7 +43,12 @@ export class JobItem extends Component {
             body: data
         });
 
-        this.setState({file: null, textArea: '', visible: false, reply: false});
+        this.setState({
+            file: null,
+            textArea: '',
+            visible: false,
+            reply: false
+        });
     };
 
     render() {
@@ -68,10 +69,10 @@ export class JobItem extends Component {
                 <Ref innerRef={this.cardRef}>
                     <Grid.Column
                         className='jobsCard'
-                        largeScreen={8}
-                        computer={8}
-                        tablet={10}
-                        mobile={14}
+                        largeScreen={ 8 }
+                        computer={ 8 }
+                        tablet={ 10 }
+                        mobile={ 14 }
                     >
                         <Header color='green'>
                             { roll }
@@ -84,27 +85,32 @@ export class JobItem extends Component {
                         <Transition
                             visible={visible}
                             animation='scale'
-                            duration={500}
+                            duration={ 500 }
                         >
                             <div>
-                                <p style={{padding: '1rem', clear:'both', width: '90%'}}>
+                                <p className='jobItemDescription'>
                                     { description }
                                 </p>
                                 <Button onClick={this.replyMail} style={{marginLeft: '1rem'}}>Reply</Button>
                                 <Transition
                                     visible={reply}
                                     animation='scale'
-                                    duration={500}
+                                    duration={ 500 }
                                 >
                                     <div>
                                         <Form style={{marginLeft: '1rem', marginTop: '1rem'}}>
-                                            <Form.TextArea placeholder='Tell us more' onChange={e => this.setState({textArea: e.target.value})} value={this.state.textArea} />
+                                            <Form.TextArea
+                                                placeholder='Tell us more'
+                                                onChange={e => this.setState({
+                                                    textArea: e.target.value
+                                                })}
+                                                value={this.state.textArea}
+                                            />
                                             <Button onClick={this.callUploader} floated='left'>Add File</Button>
                                             <span style={{lineHeight: 2.5}}>
-                                                {this.state.file ? this.state.file.name : ''}
+                                                { this.state.file ? this.state.file.name : '' }
                                             </span>
                                             <Button onClick={this.sendData} floated='right'>SEND</Button>
-
                                         </Form>
                                     </div>
                                 </Transition>
@@ -115,5 +121,4 @@ export class JobItem extends Component {
             </Grid.Row>
         )
     }
-
 }

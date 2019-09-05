@@ -8,13 +8,19 @@
 
 .containerWhatWeDo {
     padding-top: 120px;
-    background-color: rgba(9,13,0 , 0.15); /*251, 189, 8*/
+    background-color: rgba(9,13,0 , 0.15);
     font-size: 1.2rem;
     padding-bottom: 2rem;
 }
 .containerWhatWeDo.containerWhatWeDo.containerWhatWeDo {
     margin-top: -80px !important;
 }
+.phasesWhatWeDo {
+    width: 80%;
+    margin: 3rem auto 3rem auto !important;
+    padding-bottom: 3rem !important;
+}
+
 .containerJobs {
     padding-top: 160px;
     margin-top: -80px;
@@ -74,7 +80,12 @@
     background-color: rgb(39,40,45);
     box-shadow:0 4px 16px 0 rgba(0,0,0,.12);
 }
-@media (min-width: 680px) and (max-width: 1350px) {
+.jobItemDescription {
+    padding: 1rem;
+    clear: both;
+    width: 90%;
+}
+@media (min-width: 681px) and (max-width: 1350px) {
     .photosAboutUs {
         display: flex;
         justify-content: space-evenly;
@@ -113,8 +124,8 @@
     }
     .employeeInf {
         width: 90%;
-        bottom: 20%;
-        top: 30%;
+        bottom: 210px;
+        top: 250px;
         left: 5%;
     }
 }

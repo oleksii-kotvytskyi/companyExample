@@ -10,9 +10,7 @@ export class MobileSidebar extends React.Component {
     state = {
         active: null,
     };
-    handleClick = (e, obj ) => {
-        this.setState({ active: obj ? obj.href.slice(1) : null });
-    };
+    handleClick = (e, obj ) => this.setState({ active: obj ? obj.href.slice(1) : null });
 
     render() {
         const { isMobile, headerRef } = this.props;
@@ -25,8 +23,8 @@ export class MobileSidebar extends React.Component {
 
        return (
            <Ref innerRef={headerRef} >
-               <Sidebar as={Menu} visible={isMobile} className='menu' inverted size="large" fixed='top'>
-                   <Image src={Logo}  className='imgLogo' as='a' href='#header' />
+               <Sidebar as={Menu} visible={isMobile} className='menu' inverted size='large' fixed='top'>
+                   <Image src={Logo}  className='imgLogo' as='a' href='#header' onClick={this.handleClick}/>
                    <TransitionablePortal
                        closeOnTriggerClick
                        mountNode={headerRef.current || document.body}
@@ -43,7 +41,7 @@ export class MobileSidebar extends React.Component {
                            />
                        }
                    >
-                       <div className={`menuItems`}>
+                       <div className='menuItems'>
                            { menus.map(el => {
                                return (
                                    <Menu.Item

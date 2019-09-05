@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { Header, Icon, Container, Grid, Divider } from 'semantic-ui-react';
 import './Main.css';
-import { isMobile } from '../../utils/Utils';
+import { getWidth } from '../../utils/Utils';
 import Translate from '../../translate';
 
 
 export class WhatWeDo extends Component {
 
   render() {
-    let columns = isMobile() ? 1 : 3;
-
+    let columns = getWidth() < 750 ? 1 : 3;
     const items = [
       {tittle: Translate.__('Prototype'), content: Translate.__('Prototype_text'), icon: "sitemap", color: "black"},
       {tittle: Translate.__('Design'), content: Translate.__('Design_text'), icon: "sync", color: "green"},
@@ -25,21 +24,20 @@ export class WhatWeDo extends Component {
           <Header.Content>{ Translate.__('What We Do') }</Header.Content>
         </Header>
         <Divider className='isDivider'/>
-        <Grid columns={columns} className='phasesWhatWeDo' style={{
-          width: '80%',
-          margin: '3rem auto 3rem auto',
-          paddingBottom: '3rem',
-        }} centered>
-          {items.map((el, idx) => (
-            <Grid.Column key={idx}>
-              <Header as='h2' icon textAlign='center'>
-                <Icon name={el.icon} color={el.color ? el.color : 'yellow'}/>
-                <Header.Content>{el.tittle}</Header.Content>
-              </Header>
-              <Container textAlign='center'>
-                <p> {el.content} </p>
-              </Container>
-            </Grid.Column>
+        <Grid columns={columns} className='phasesWhatWeDo'  centered>
+          {
+              items.map((el, idx) => (
+                <Grid.Column key={idx}>
+                  <Header as='h2' icon textAlign='center'>
+                    <Icon name={el.icon} color={el.color ? el.color : 'yellow'}/>
+                    <Header.Content>
+                        {el.tittle}
+                    </Header.Content>
+                  </Header>
+                  <Container textAlign='center'>
+                    <p> {el.content} </p>
+                  </Container>
+                </Grid.Column>
           ))}
         </Grid>
       </div>

@@ -12,11 +12,7 @@ export class AboutAs extends Component {
             stateRefAboutUs : null,
         }
     }
-    componentDidMount() {
-        this.setState({
-                stateRefAboutUs: this.refAboutUs.current
-        })
-    }
+    componentDidMount = ()  =>  this.setState({ stateRefAboutUs: this.refAboutUs.current });
 
     render() {
         const { content, list, } = this.props.sectionData;
