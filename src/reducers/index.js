@@ -34,5 +34,4 @@ const reducer = (state = localState, action) => {
 
 };
 
-
 export default reducer;

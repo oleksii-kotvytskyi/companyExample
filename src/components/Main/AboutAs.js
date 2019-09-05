@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Header, Icon, Image, TransitionablePortal, Segment, Divider } from 'semantic-ui-react';
+import Translate from '../../translate';
 import './Main.css';
 
 
@@ -24,7 +25,7 @@ export class AboutAs extends Component {
             <div className='containerAboutUs' ref={this.refAboutUs} id='about_us'>
                 <Header as='h2' icon textAlign='center'>
                     <Icon name='users' circular color='green'/>
-                    <Header.Content>About Us</Header.Content>
+                    <Header.Content>{ Translate.__('About Us') }</Header.Content>
                 </Header>
                 <Divider className='isDivider'/>
                 <div className='wrapperAboutUs'>
