@@ -3,11 +3,14 @@
     background: rgba(9,13,0 , 0.15); /*251, 189, 8*/
     text-align: center;
     height: 80vh;
+    padding-top: 80px;
 
 }
 .animationContainer {
     position: relative;
     height: 50vh;
+    padding-top: 320px;
+    padding-bottom: 80px;
 }
 
 .animationContainer .animationPart {
@@ -54,7 +57,7 @@
 }
 .companyDescription {
     width: 80%;
-    margin: 2rem auto 0 auto;
+    margin: 0 auto 0 auto;
 }
 
 .menu {
@@ -110,6 +113,9 @@
         font-size: 2.7rem;
         line-height: 2.7rem;
         margin-right: 2rem;
+    }
+    .animationContainer {
+        padding-top: 230px
     }
     .animationContainer .animationPart {
         width: 300px;
