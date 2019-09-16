@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/companyExample/static/css/main.4be4e187.chunk.css",
+    "main.js": "/companyExample/static/js/main.d2e0ec7b.chunk.js",
+    "main.js.map": "/companyExample/static/js/main.d2e0ec7b.chunk.js.map",
+    "runtime~main.js": "/companyExample/static/js/runtime~main.fb9f1f40.js",
+    "runtime~main.js.map": "/companyExample/static/js/runtime~main.fb9f1f40.js.map",
+    "static/css/2.a4e88d6f.chunk.css": "/companyExample/static/css/2.a4e88d6f.chunk.css",
+    "static/js/2.3f1a1352.chunk.js": "/companyExample/static/js/2.3f1a1352.chunk.js",
+    "static/js/2.3f1a1352.chunk.js.map": "/companyExample/static/js/2.3f1a1352.chunk.js.map",
+    "index.html": "/companyExample/index.html",
+    "precache-manifest.8f88de4773e06d52338881751dab1d59.js": "/companyExample/precache-manifest.8f88de4773e06d52338881751dab1d59.js",
+    "service-worker.js": "/companyExample/service-worker.js",
+    "static/css/2.a4e88d6f.chunk.css.map": "/companyExample/static/css/2.a4e88d6f.chunk.css.map",
+    "static/css/main.4be4e187.chunk.css.map": "/companyExample/static/css/main.4be4e187.chunk.css.map",
+    "static/media/semantic.min.css": "/companyExample/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/tree-logo.jpg": "/companyExample/static/media/tree-logo.afa5a11b.jpg"
+  }
+}
