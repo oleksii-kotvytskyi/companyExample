@@ -61,16 +61,7 @@ export class JobItem extends Component {
     render() {
         const { roll, content } = this.props;
         const { visible, reply, file } = this.state;
-
-        const contentPart = content.split('===');
-        let preview = content;
-        let description = '';
-
-        if (contentPart.length === 2) {
-            preview = contentPart[0];
-            description = contentPart[1];
-        }
-
+        
         return(
             <Grid.Row centered  >
                 <Ref innerRef={this.cardRef}>
@@ -85,7 +76,7 @@ export class JobItem extends Component {
                             { roll }
                         </Header>
                         <p>
-                            { preview }
+                            { content }
                         </p>
                         <Divider />
                         <Button icon='angle down' floated='right' onClick={this.handleClick} inverted color='green' active={visible}/>
@@ -96,7 +87,7 @@ export class JobItem extends Component {
                         >
                             <div>
                                 <p className='jobItemDescription'>
-                                    { description }
+                                    { content }
                                 </p>
                                 <Button onClick={this.replyMail} style={{marginLeft: '1rem'}}>
                                     Reply

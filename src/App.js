@@ -6,21 +6,16 @@ import { AboutAs } from "./components/Main/AboutAs";
 import { WhatWeDo } from "./components/Main/WhatWeDo";
 import { Jobs } from "./components/Main/Jobs";
 import { Footer } from "./components/Footer/Footer";
-import { isBrowser, getWidth } from "./utils/Utils";
-import updateContent from './actions/updateContent';
+import { getWidth } from "./utils/Utils";
 
 
 export class App extends Component {
-    componentDidMount = () => updateContent(this.props.language, this.props.setUIContent);
 
     render () {
-        const {
-            setUIWidth,
-        } = this.props;
         return (
             // contentHeader && Object.keys(contentHeader).length > 0
             //     ?
-                <Responsive getWidth={() => {setUIWidth(isBrowser() ? getWidth() : 0)}}>
+                <Responsive getWidth={getWidth}>
                     <div className="App">
                         <Header />
                         <AboutAs />

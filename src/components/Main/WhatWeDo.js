@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Header, Icon, Container, Grid, Divider } from 'semantic-ui-react';
 import './Main.css';
 import { getWidth } from '../../utils/Utils';
-// import Translate from '../../translate';
 import { whatWeDoInf } from '../../api/dataForComponents';
 
 
@@ -10,13 +9,6 @@ export class WhatWeDo extends Component {
 
   render() {
     let columns = getWidth() < 750 ? 1 : 3;
-    // const items = [
-    //   {tittle: Translate.__('Prototype'), content: Translate.__('Prototype_text'), icon: "sitemap", color: "black"},
-    //   {tittle: Translate.__('Design'), content: Translate.__('Design_text'), icon: "sync", color: "green"},
-    //   {tittle: Translate.__('Backend'), content: Translate.__('Backend_text'), icon: "php", color: "violet"},
-    //   {tittle: Translate.__('Frontend'), content: Translate.__('Frontend_text'), icon: "react", color: "blue"},
-    //   {tittle: Translate.__('Plugins'), content: Translate.__('Plugins_text'), icon: "gem"},
-    // ];
 
     return (
       <div className='containerWhatWeDo' id='what_we_do' >

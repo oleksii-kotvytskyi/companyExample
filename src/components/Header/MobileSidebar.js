@@ -2,9 +2,8 @@ import React from 'react';
 import { Menu, Image, Sidebar, Icon, TransitionablePortal, Ref } from 'semantic-ui-react';
 import Logo from '../../tree-logo.jpg';
 import './Header.css';
-import LanguageSwitch from '../../containers/LanguageSwitch';
-import Translate from "../../translate";
-import { headerItems } from '../../api/dataForComponents'
+import LanguageSwitch from './LanguageSwitch';
+import { menus } from '../../api/dataForComponents';
 
 
 export class MobileSidebar extends React.Component {
@@ -17,11 +16,6 @@ export class MobileSidebar extends React.Component {
     render() {
         const { isMobile, headerRef } = this.props;
         const { active } = this.state;
-        const menus = [
-            {id: 'about_us', name: Translate.__('About Us')},
-            {id: 'what_we_do', name: Translate.__('What We Do')},
-            {id: 'jobs', name: Translate.__('Jobs')},
-        ];
 
        return (
            <Ref innerRef={headerRef} >

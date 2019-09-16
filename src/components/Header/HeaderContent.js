@@ -1,6 +1,5 @@
 import React from 'react';
 import './Header.css';
-// import Translate from '../../translate';
 
  export default function HeaderContent({children}) {
     return (

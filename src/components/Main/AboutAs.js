@@ -16,8 +16,8 @@ export class AboutAs extends Component {
     componentDidMount = ()  =>  this.setState({ stateRefAboutUs: this.refAboutUs.current });
 
     render() {
-        // const { content, list, } = this.props.sectionData;
-        console.log(Object.keys(aboutUsInf).filter(el => typeof aboutUsInf[el] === 'object').map(el => el));
+        const photos = Object.keys(aboutUsInf).filter(el => typeof aboutUsInf[el] === 'object');
+        
          return (
             <div className='containerAboutUs' ref={this.refAboutUs} id='about_us'>
                 <Header as='h2' icon textAlign='center'>
@@ -31,7 +31,7 @@ export class AboutAs extends Component {
                     </p>
                     <div className='photosAboutUs'>
                     {
-                        Object.keys(aboutUsInf).filter(el => typeof aboutUsInf[el] === 'object').map((el, idx) => (
+                        photos.map((el, idx) => (
                         <TransitionablePortal
                             key={idx}
                             closeOnTriggerClick

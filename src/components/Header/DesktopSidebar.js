@@ -1,10 +1,9 @@
 import React from 'react';
 import { Menu, Image, Sidebar } from 'semantic-ui-react';
-import LanguageSwitch from '../../containers/LanguageSwitch';
+import LanguageSwitch from './LanguageSwitch';
 import Logo from '../../tree-logo.jpg';
-import Translate from '../../translate';
-// import { headerItems } from '../../api/dataForComponents';
 import './Header.css';
+import { menus } from '../../api/dataForComponents';
 
 
 export class DesktopSidebar extends React.Component {
@@ -16,12 +15,6 @@ export class DesktopSidebar extends React.Component {
   render() {
     const { isMobile } = this.props;
     const { active } = this.state;
-
-    const menus = [
-      {id: 'about_us', name: Translate.__('About Us')},
-      {id: 'what_we_do', name: Translate.__('What We Do')},
-      {id: 'jobs', name: Translate.__('Jobs')},
-    ];
 
     return (
       <Sidebar as={Menu} visible={!isMobile} className='menu' inverted size="large" fixed='top'>

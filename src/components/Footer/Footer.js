@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
-import Translate from '../../translate';
 
 const phone = '3809009090';
 const email = 'someEmail@example.com'
-export class Footer extends Component {
 
+export class Footer extends Component {
     render() {
-        // const { email, phone } = this.props.sectionData;
 
         return (
             <div className='containerFooter' >
