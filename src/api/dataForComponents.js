@@ -51,12 +51,12 @@ const aboutUsInf = {
     },
     photo1: {
         src: 'https://icon-library.net/images/woman-icon/woman-icon-8.jpg',
-        fullName: 'Oksana Palamarchuk ',
+        fullName: 'Oksana Girl ',
         roll: 'Business Analytic'
     },
     photo2: {
         src: 'https://seeklogo.com/images/F/flat-man-icon-logo-A0FEC16B6D-seeklogo.com.png',
-        fullName: 'Oleg Werdffelynir',
+        fullName: 'Oleg Man',
         roll: 'Full Stack Developer'
     }
 };
