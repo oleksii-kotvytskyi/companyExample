@@ -1,21 +1,21 @@
 import React from 'react';
 import './Header.css';
-import Translate from '../../translate';
+// import Translate from '../../translate';
 
  export default function HeaderContent({children}) {
     return (
         <div className='headerMainContent'>
             <div className='animationContainer'>
                 <p className='animationPart'>
-                  { Translate.__('TEXT') }
+                  React 
                     <span className="animationText">
-                        Sunlight
+                        Company
                     </span>
-                  { Translate.__('SLOGAN') }
+                  Develepment
                 </p>
             </div>
             <p className='companyDescription'>
-              {children}
+              { children }
             </p>
         </div>
     )

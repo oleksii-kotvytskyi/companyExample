@@ -17,7 +17,7 @@ export default class LanguageSwitch extends React.Component {
 
     render() {
         return (
-            <Dropdown text={Translate.__('Language')}  item style={{width: '120px'}} >
+            <Dropdown text={Translate.__('Language') || 'Language'}  item style={{width: '120px'}} >
                 <Dropdown.Menu>
                     { options.map(el => (
                         <Dropdown.Item

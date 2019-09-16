@@ -16,27 +16,23 @@ export class App extends Component {
     render () {
         const {
             setUIWidth,
-            contentHeader,
-            contentAbout,
-            contentJobs,
         } = this.props;
-
         return (
-            contentHeader && Object.keys(contentHeader).length > 0
-                ?
+            // contentHeader && Object.keys(contentHeader).length > 0
+            //     ?
                 <Responsive getWidth={() => {setUIWidth(isBrowser() ? getWidth() : 0)}}>
                     <div className="App">
-                        <Header sectionData={contentHeader} />
-                        <AboutAs sectionData={contentAbout} />
+                        <Header />
+                        <AboutAs />
                         <WhatWeDo />
-                        <Jobs sectionData={contentJobs} />
-                        <Footer sectionData={contentAbout} />
+                        <Jobs />
+                        <Footer />
                     </div>
                 </Responsive>
-                :
-                <Dimmer active>
-                    <Loader size='large'>Loading...</Loader>
-                </Dimmer>
+                // :
+                // <Dimmer active>
+                //     <Loader size='large'>Loading...</Loader>
+                // </Dimmer>
         );
     }
 }

@@ -20,7 +20,13 @@ const reducer = (state = localState, action) => {
     switch (action.type) {
 
         case CHANGE_UI_WIDTH:
-            return {...state, ...{ui: {...state.ui, ...{width: action.payload}}}};
+            return {...state, 
+                    ...{ ui: {
+                                ...state.ui,
+                                ...{ width: action.payload }
+                             }
+                        }
+                    };
 
         case CHANGE_UI_LANGUAGE:
             return {...state, ...{ui: {...state.ui, ...{language: action.payload}}}};

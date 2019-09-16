@@ -1,5 +1,10 @@
 const headerItems = [ 'About_Us', 'What_We_Do', 'Jobs' ];
 const text = 'I am a very simple card. I am good at containing small bits of information';
+const headerContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur assumenda consequatur\n' +
+'corporis cumque distinctio doloremque doloribus esse excepturi fugiat id impedit iusto, magni\n' +
+'quidem sequi similique vel vitae. A adipisci aliquam aspernatur atque cum, dicta dolor dolore\n' +
+'enim excepturi exercitationem facilis ipsa laborum magnam magni molestias nam nesciunt nihil\n';
+
 const whatWeDoInf = [{
     tittle: 'Prototype',
     content: text,
@@ -72,6 +77,7 @@ const jobsInf = [
 
 export {
     headerItems,
+    headerContent,
     aboutUsInf,
     whatWeDoInf,
     jobsInf

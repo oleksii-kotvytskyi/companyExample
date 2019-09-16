@@ -3,6 +3,8 @@ import { Responsive } from 'semantic-ui-react';
 import { MobileSidebar } from './MobileSidebar';
 import { DesktopSidebar } from './DesktopSidebar';
 import HeaderContent from './HeaderContent';
+import { headerContent } from '../../api/dataForComponents';
+
 
 export class Header extends React.Component {
     headerRef = React.createRef();
@@ -16,7 +18,6 @@ export class Header extends React.Component {
 
     render() {
         const { curWidth, } = this.state;
-        const { sectionData } = this.props;
         const isMobile = curWidth <= 550;
 
         return (
@@ -24,7 +25,7 @@ export class Header extends React.Component {
                 <DesktopSidebar isMobile={isMobile }/>
                 <MobileSidebar isMobile={isMobile } headerRef={this.headerRef}/>
                 <HeaderContent>
-                    { sectionData.content }
+                    { headerContent }
                 </HeaderContent>
             </Responsive>
         )

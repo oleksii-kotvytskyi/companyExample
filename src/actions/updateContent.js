@@ -1,6 +1,6 @@
 import Translate from '../translate';
 
-const SERVER_URL = 'http://192.168.0.105/chunks?key=';
+const SERVER_URL = 'http://192.121.0.105/chunks?key=';
 
 const updateContent = (language, setUIContent) => {
   const lang = language || 'en';

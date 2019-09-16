@@ -1,8 +1,9 @@
 import React from 'react';
 import { Menu, Image, Sidebar } from 'semantic-ui-react';
-import Logo from '../../img/Logo.jpg';
 import LanguageSwitch from '../../containers/LanguageSwitch';
+import Logo from '../../tree-logo.jpg';
 import Translate from '../../translate';
+// import { headerItems } from '../../api/dataForComponents';
 import './Header.css';
 
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header, Icon, Image, TransitionablePortal, Segment, Divider } from 'semantic-ui-react';
-import Translate from '../../translate';
+// import Translate from '../../translate';
+import { aboutUsInf } from '../../api/dataForComponents';
 import './Main.css';
 
 
@@ -15,22 +16,22 @@ export class AboutAs extends Component {
     componentDidMount = ()  =>  this.setState({ stateRefAboutUs: this.refAboutUs.current });
 
     render() {
-        const { content, list, } = this.props.sectionData;
-
+        // const { content, list, } = this.props.sectionData;
+        console.log(Object.keys(aboutUsInf).filter(el => typeof aboutUsInf[el] === 'object').map(el => el));
          return (
             <div className='containerAboutUs' ref={this.refAboutUs} id='about_us'>
                 <Header as='h2' icon textAlign='center'>
                     <Icon name='users' circular color='green'/>
-                    <Header.Content>{ Translate.__('About Us') }</Header.Content>
+                    <Header.Content>About Us</Header.Content>
                 </Header>
                 <Divider className='isDivider'/>
                 <div className='wrapperAboutUs'>
                     <p className='descriptionAboutUs'>
-                        { content }
+                        { aboutUsInf.content }
                     </p>
                     <div className='photosAboutUs'>
                     {
-                        list.map((el, idx) => (
+                        Object.keys(aboutUsInf).filter(el => typeof aboutUsInf[el] === 'object').map((el, idx) => (
                         <TransitionablePortal
                             key={idx}
                             closeOnTriggerClick
@@ -38,7 +39,7 @@ export class AboutAs extends Component {
                             mountNode={this.state.stateRefAboutUs}
                             trigger={
                                 <Image
-                                    src='https://seeklogo.com/images/F/flat-man-icon-logo-A0FEC16B6D-seeklogo.com.png'
+                                    src={aboutUsInf[el].src}
                                     circular
                                     className={`wrapperAboutUs_photo photo${idx}`}
                                 />
@@ -46,14 +47,14 @@ export class AboutAs extends Component {
                         >
                             <Segment className='employeeInf'>
                                 <Image
-                                    src='https://seeklogo.com/images/F/flat-man-icon-logo-A0FEC16B6D-seeklogo.com.png'
+                                    src={aboutUsInf[el].src}
                                     circular
                                     size='tiny'
                                     verticalAlign='top'
                                 />
-                                <Header style={{color: 'white'}}>{el.title}</Header>
-                                <p>{el.post}</p>
-                                <p>{el.content}</p>
+                                <Header style={{color: 'white'}}>{aboutUsInf[el].fullName}</Header>
+                                <p>{aboutUsInf[el].roll}</p>
+                                <p>{aboutUsInf.content.slice(0,250)}</p>
                             </Segment>
                         </TransitionablePortal>
                     ))}

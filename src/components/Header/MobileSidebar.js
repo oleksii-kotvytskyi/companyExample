@@ -1,9 +1,10 @@
 import React from 'react';
 import { Menu, Image, Sidebar, Icon, TransitionablePortal, Ref } from 'semantic-ui-react';
-import Logo from '../../img/Logo.jpg';
+import Logo from '../../tree-logo.jpg';
 import './Header.css';
 import LanguageSwitch from '../../containers/LanguageSwitch';
 import Translate from "../../translate";
+import { headerItems } from '../../api/dataForComponents'
 
 
 export class MobileSidebar extends React.Component {
